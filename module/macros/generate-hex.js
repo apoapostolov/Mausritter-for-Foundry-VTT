@@ -6,11 +6,15 @@ async function tableByName(name) {
   return table;
 }
 
-async function drawText(name) {
+async function drawTable(name) {
   const table = await tableByName(name);
-  if (!table) return "";
+  if (!table) return { text: "", roll: null };
   const rolled = await table.roll();
-  return rolled.results[0]?.name || rolled.results[0]?.description || "";
+  const row = rolled.results[0];
+  return {
+    text: row?.name || row?.description || "",
+    roll: rolled.roll || null
+  };
 }
 
 const types = ["Random", "Countryside", "Forest", "River", "Human Town"];
@@ -28,9 +32,16 @@ if (!(root instanceof HTMLElement)) return;
 let hexType = root.querySelector("#stat")?.value;
 const randomHex = ["Countryside", "Forest", "River", "Human Town"];
 if (hexType === "Random") hexType = randomHex[Math.floor(Math.random() * randomHex.length)];
-const landmark = await drawText(`Hex - ${hexType}`);
-const details = await drawText("Hex - Landmark Details");
-ChatMessage.create({
-  content: `<h2>${hexType}:</h2><b>Landmark:</b> ${landmark}<br/><b>Details:</b> <i>${details}</i>`,
-  whisper: ChatMessage.getWhisperRecipients("GM")
+const landmark = await drawTable(`Hex - ${hexType}`);
+const details = await drawTable("Hex - Landmark Details");
+const rolls = [landmark.roll, details.roll].filter(Boolean);
+await game.mausritter.postTableCard({
+  title: `Hex - ${hexType}`,
+  result: landmark.text,
+  total: landmark.roll?.total,
+  formula: landmark.roll?.formula,
+  details: details.text ? `<p>${details.text}</p>` : ""
+}, {
+  rolls,
+  whisper: foundry.documents.ChatMessage.getWhisperRecipients("GM")
 });

@@ -1,0 +1,134 @@
+{
+ "Mousy Coat Pattern": {
+  "file": "Maus-Table-Mousy-Coat-Pattern.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Mousy-Coat-Pattern.png",
+  "formula": "d6",
+  "results": 6
+ },
+ "Hex - Forest": {
+  "file": "Maus-Table-Hex-Forest.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Hex-Forest.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Hex - Landmark Details": {
+  "file": "Maus-Table-Hex-Landmark-Details.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Hex-Landmark-Details.png",
+  "formula": "d100",
+  "results": 41
+ },
+ "Non-player mice - Relationship": {
+  "file": "Maus-Table-Non-player-mice-Relationship.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Non-player-mice-Relationship.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Hex - Countryside": {
+  "file": "Maus-Table-Hex-Countryside.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Hex-Countryside.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Weather Summer": {
+  "file": "Maus-Table-Weather-Summer.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Weather-Summer.png",
+  "formula": "2d6",
+  "results": 5
+ },
+ "Hex - Human Town": {
+  "file": "Maus-Table-Hex-Human-Town.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Hex-Human-Town.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Hex - Type": {
+  "file": "Maus-Table-Hex-Type.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Hex-Type.png",
+  "formula": "1d6",
+  "results": 4
+ },
+ "Non-player mice - Appearance": {
+  "file": "Maus-Table-Non-player-mice-Appearance.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Non-player-mice-Appearance.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Physical detail": {
+  "file": "Maus-Table-Physical-detail.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Physical-detail.png",
+  "formula": "1d36",
+  "results": 36
+ },
+ "Weather Winter": {
+  "file": "Maus-Table-Weather-Winter.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Weather-Winter.png",
+  "formula": "2d6",
+  "results": 5
+ },
+ "Mousy Names - Birthname": {
+  "file": "Maus-Table-Mousy-Names-Birthname.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Mousy-Names-Birthname.png",
+  "formula": "1d100",
+  "results": 100
+ },
+ "Non-player mice - Quirk": {
+  "file": "Maus-Table-Non-player-mice-Quirk.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Non-player-mice-Quirk.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Birthsign": {
+  "file": "Maus-Table-Birthsign.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Birthsign.png",
+  "formula": "d6",
+  "results": 6
+ },
+ "Weather Spring": {
+  "file": "Maus-Table-Weather-Spring.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Weather-Spring.png",
+  "formula": "2d6",
+  "results": 5
+ },
+ "Non-player mice - Birthsign and Disposition": {
+  "file": "Maus-Table-Non-player-mice-Birthsign-and-Disposition.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Non-player-mice-Birthsign-and-Disposition.png",
+  "formula": "1d6",
+  "results": 6
+ },
+ "Non-player mice - Wants": {
+  "file": "Maus-Table-Non-player-mice-Wants.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Non-player-mice-Wants.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Mousy Names - Matriname": {
+  "file": "Maus-Table-Mousy-Names-Matriname.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Mousy-Names-Matriname.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Non-player mice - Social position and Payment for service": {
+  "file": "Maus-Table-Non-player-mice-Social-position-and-Payment-for-service.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Non-player-mice-Social-position-and-Payment-for-service.png",
+  "formula": "1d6",
+  "results": 6
+ },
+ "Mousy Coat Color": {
+  "file": "Maus-Table-Mousy-Coat-Color.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Mousy-Coat-Color.png",
+  "formula": "d6",
+  "results": 6
+ },
+ "Hex - River": {
+  "file": "Maus-Table-Hex-River.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Hex-River.png",
+  "formula": "1d20",
+  "results": 20
+ },
+ "Weather Autumn": {
+  "file": "Maus-Table-Weather-Autumn.png",
+  "img": "systems/mausritter/images/tables/Maus-Table-Weather-Autumn.png",
+  "formula": "2d6",
+  "results": 5
+ }
+}

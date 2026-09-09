@@ -13,9 +13,11 @@
         {{#if pip}}
         {{{pip}}}
         {{/if}}
+        {{#if item.system.description}}
         <div class="description">
             <div class="body">{{{item.system.description}}}</div>
         </div>
+        {{/if}}
         {{else}}
         {{#if isWeapon}} 
         <div class="flexrow" style="height: 46px;">
@@ -30,20 +32,10 @@
         <div class="rollh1">{{stat.name}}</div>
         {{/if}}
 
-        {{#if advantage}}
-        <div class="rollh2">{{localize "Maus.RollAD"}}</div>
-        {{else}}
         {{#unless isWeapon}}
         <div class="rollh2">{{data.resultText.value}}</div>
-        {{/unless}}
-        {{/if}}
-        {{#unless isWeapon}}
         <div class="roll-grid">
-            {{#if advantage}}
-            <div class="roll-result">{{data.diceTotal.value}} / {{data.diceTotal.advantageValue}}</div>
-            {{else}}
             <div class="roll-result">{{data.diceTotal.value}}</div>
-            {{/if}}
         </div>
         <div class="roll-target">
             <div class="valuetext">{{localize "Maus.RollTarget"}}:</div>
@@ -52,7 +44,7 @@
             </div>
         </div>
         <div class="rollmods">
-            <div class="valuetext">{{stat.name}} ({{this.target}})</div>
+            <div class="valuetext">{{stat.name}} ({{this.target}}){{#if advantageLabel}} · {{advantageLabel}}{{/if}}</div>
         </div>
         {{/unless}}
             <!-- Damage Roll -->
@@ -67,7 +59,7 @@
 
                 {{#if item.system.description}}
                 <div class="description">
-                    <div class="header" style="font-size: 1.3em;">{{localize "Maus.RollDescription"}}</div>
+                    <div class="header">{{localize "Maus.RollDescription"}}</div>
                     <div class="body">{{{item.system.description}}}</div>
                 </div>
                 {{/if}}

@@ -9,6 +9,7 @@ import { MausritterItemSheet } from "./item/item-sheet.js";
 
 import { registerSettings } from "./settings.js";
 import { autoCreateCharacter } from "./actor/create-character/create-character.js";
+import { patchRollTableChat, postTableCard } from "./chat/table-card.js";
 import {
   CharacterData,
   HirelingData,
@@ -28,8 +29,10 @@ Hooks.once("init", async function () {
     MausritterItem,
     rollItemMacro,
     rollStatMacro,
-    autoCreateCharacter
+    autoCreateCharacter,
+    postTableCard
   };
+  patchRollTableChat();
 
   registerSettings();
 

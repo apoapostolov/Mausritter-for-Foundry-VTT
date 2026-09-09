@@ -27,4 +27,11 @@ Target: Foundry **14.367** (compatibility minimum `14.0.0`)
 ## Still open
 - [ ] Drop `template.json` after a world-migration pass
 - [x] AppV2 sheets (character, hireling, creature, storage, items) on branch appv2
-- [x] Version bump / release 14.0.0
+- [x] Stay on release 14.0.0 (rebase that tag; do not mint 14.1.x while iterating)
+- [x] Roll/chat audit on 14.367 (`mausritter-qa`)
+- [x] Empty second weapon die no longer crashes `rollWeapon`
+- [x] Spell chat shows Sum + dice instead of `12|3`
+- [x] Weather/hex chat uses the Mausritter header, not Foundry Amiri `h2`
+- [x] Chat cards attach Foundry rolls (native dice tooltip)
+- [x] Advantage keeps low, disadvantage keeps high
+- [x] Table result rows no longer store `d20-black.svg`

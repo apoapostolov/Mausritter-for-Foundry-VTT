@@ -969,6 +969,20 @@
   border-radius: 10px;
 }
 
+.chat-message .mausritter-dice .dice-total {
+  display: none;
+}
+
+.chat-message .mausritter-dice .dice-formula {
+  font-family: 'Germania One', Garamond;
+  font-size: 0.8rem;
+  text-align: center;
+  color: grey;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
 .mausritter .rollcontainer {
   background: #fff;
   padding: 0 0.5rem;
@@ -1010,10 +1024,50 @@
 .mausritter .rollh2 {
   font-size: 1.8rem;
   font-weight: normal;
-  line-height: 1;
+  line-height: 1.15;
   text-align: center;
   margin-top: 4px;
   padding: 5px;
+  overflow-wrap: anywhere;
+}
+
+.mausritter.table-card .table-card-head {
+  height: 46px;
+  margin: 0;
+}
+
+.mausritter.table-card .rollweaponh1 {
+  padding-left: 10px;
+}
+
+.mausritter.table-card .table-card-row {
+  font-family: 'Germania One', Garamond;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #111;
+  text-align: center;
+  padding: 0.55rem 0.4rem 0.65rem;
+}
+
+.mausritter.table-card .table-card-result {
+  font-size: inherit;
+}
+
+.mausritter.table-card .table-card-meta {
+  margin-top: 0.15rem;
+  color: grey;
+  text-transform: uppercase;
+}
+
+.mausritter.table-card .table-card-details {
+  margin-top: 0.35rem;
+  font-size: inherit;
+  text-align: left;
+}
+
+.mausritter.table-card .table-card-details p {
+  margin: 0 0 0.25em;
 }
 
 .mausritter .rollmods {
@@ -1099,6 +1153,26 @@
   grid-column: 2 / span 2;
   color: rgb(117, 0, 0);
   margin: auto;
+}
+
+.mausritter .description .header,
+.mausritter .description .roll-usage,
+.mausritter .description .body h2 {
+  display: block;
+  font-family: 'Germania One', Garamond;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0.45em 0 0.15em;
+  color: #111;
+  border: none;
+}
+
+.mausritter .description .roll-usage strong,
+.mausritter .description .body h2 strong {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
 }
 
 .mausritter .items-tab-grid {

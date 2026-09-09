@@ -1,0 +1,20 @@
+<div class="mausritter table-card">
+    <div class="rollcontainer">
+        <div class="flexrow table-card-head">
+            <div class="rollweaponh1">{{title}}</div>
+        </div>
+        <div class="table-card-row">
+            {{#if result}}
+            <div class="table-card-result">{{result}}</div>
+            {{/if}}
+            {{#if hasTotal}}
+            <div class="table-card-meta">{{total}}{{#if formula}} ({{formula}}){{/if}}</div>
+            {{/if}}
+            {{#if details}}
+            <div class="table-card-details">{{{details}}}</div>
+            {{else if description}}
+            <div class="table-card-details">{{{description}}}</div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,8 +1,21 @@
+import { isPlaceholderArt, itemArtForType, MAUS_ART } from "../art.js";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
 export class MausritterItem extends Item {
+  static DEFAULT_ICON = MAUS_ART.item;
+
+  /** @inheritDoc */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) return false;
+    if (isPlaceholderArt(this.img) || isPlaceholderArt(data.img)) {
+      this.updateSource({ img: itemArtForType(this.type) });
+    }
+  }
+
   /**
    * Augment the basic Item data model with additional dynamic data.
    */

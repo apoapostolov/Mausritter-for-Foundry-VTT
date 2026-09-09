@@ -15,9 +15,10 @@ const pack = game.packs.get("mausritter.tables");
 const tables = pack ? await pack.getDocuments() : [];
 const table = tables.find((t) => t.name === `Weather ${season}`);
 if (!table) return ui.notifications.warn(`Table Weather ${season} not found.`);
-const rolled = await table.roll();
-const weather = rolled.results[0]?.name || rolled.results[0]?.description || "";
-ChatMessage.create({
-  content: `<h2>Today's Weather:</h2><b style="font-size:120%;">${weather}</b>`,
-  whisper: ChatMessage.getWhisperRecipients("GM")
+const { roll, results } = await table.roll();
+await table.toMessage(results, {
+  roll,
+  messageData: {
+    whisper: foundry.documents.ChatMessage.getWhisperRecipients("GM")
+  }
 });
