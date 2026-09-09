@@ -44,7 +44,112 @@ export function finalizeActorSheetData(sheet, bag) {
   out.cssClass = bag.cssClass ?? (sheet.isEditable ? "editable" : "locked");
   out.editable = sheet.isEditable;
   out.dtypes = ["String", "Number", "Boolean"];
+  if (bag.tabs) out.tabs = bag.tabs;
   return out;
+}
+
+export function prepareOwnedItems(sheetData) {
+  const actorData = sheetData.actor;
+  const gear = [];
+  for (const i of sheetData.items) {
+    const item = i.system;
+    i.img = i.img || CONST.DEFAULT_TOKEN;
+    if (item.pips == null) {
+      item.pips = { value: 0, max: 0, html: "" };
+    }
+    let pipHtml = "";
+    for (let n = 0; n < item.pips.max; n++) {
+      pipHtml += n < item.pips.value ? '<i class="fas fa-circle"></i>' : '<i class="far fa-circle"></i>';
+    }
+    item.pips.html = pipHtml;
+    if (i.type == "item") {
+      item.isWeapon = false;
+      item.isCondition = false;
+    } else if (i.type == "weapon") {
+      item.isWeapon = true;
+      item.isCondition = false;
+      item.weapon.canSwap = item.weapon.dmg2 != "";
+    }
+    if (item.size == undefined) {
+      item.size = { width: 1, height: 1, x: "9em", y: "9em" };
+    }
+    if (item.sheet.rotation == undefined) item.sheet.rotation = 0;
+    item.size.aspect = (item.sheet.rotation == -90
+      ? (item.size.width > item.size.height ? item.size.width / item.size.height : item.size.height / item.size.width)
+      : 1);
+    item.sheet.curHeight = (item.sheet.rotation == -90 ? item.size.width : item.size.height);
+    item.sheet.curWidth = (item.sheet.rotation == -90 ? item.size.height : item.size.width);
+    item.size.x = (item.sheet.curWidth * 8 + item.sheet.curWidth) + "em";
+    item.size.y = (item.sheet.curHeight * 8 + item.sheet.curHeight) + "em";
+    const roundScale = 5;
+    const xPos = Math.round(item.sheet.currentX / roundScale) * roundScale;
+    const yPos = Math.round(item.sheet.currentY / roundScale) * roundScale;
+    item.sheet.currentX = xPos;
+    item.sheet.currentY = yPos;
+    item.sheet.zIndex = xPos + yPos + 1000;
+    if (i.type != "storage") item.store = null;
+    gear.push(i);
+  }
+  actorData.gear = gear;
+}
+
+export function bindActorSheetListeners(sheet, html) {
+  if (!sheet.isEditable) return;
+  bind(html, ".item-equip", "click", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    const item = itemObject(sheet.actor, li.dataset.itemId);
+    item.system.equipped = !item.system.equipped;
+    sheet.actor.updateEmbeddedDocuments("Item", [item]);
+  });
+  bind(html, ".item-create", "click", (ev) => {
+    promptCreateOwnedItem(sheet, ev);
+  });
+  bind(html, ".item-edit", "click", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    const item = sheet.actor.getEmbeddedDocument("Item", li.dataset.itemId);
+    item.sheet.render({ force: true });
+  });
+  bind(html, ".item-delete", "click", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    sheet.actor.deleteEmbeddedDocuments("Item", [li.dataset.itemId]);
+  });
+  bind(html, ".item-rotate", "click", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    const item = itemObject(sheet.actor, li.dataset.itemId);
+    item.system.sheet.rotation = item.system.sheet.rotation == -90 ? 0 : -90;
+    sheet.actor.updateEmbeddedDocuments("Item", [item]);
+  });
+  bind(html, ".stat-roll", "click", (ev) => {
+    const statName = ev.currentTarget.dataset.key;
+    sheet.actor.rollStat(sheet.actor.system.stats[statName]);
+  });
+  bind(html, ".item-roll", "click", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    sheet.actor.rollItem(li.dataset.itemId, { event: ev });
+  });
+  bindDelegate(html, "change", ".item-input", (ev) => {
+    const input = ev.target.closest(".item-input");
+    const li = input.closest(".item");
+    const item = itemObject(sheet.actor, li.dataset.itemId);
+    item[input.name] = input.value;
+    sheet.actor.updateEmbeddedDocuments("Item", [item]);
+  });
+  bind(html, ".pip-button", "mousedown", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    const item = itemObject(sheet.actor, li.dataset.itemId);
+    let amount = item.system.pips.value;
+    if (ev.button == 0 && amount < item.system.pips.max) item.system.pips.value = Number(amount) + 1;
+    else if (ev.button == 2 && amount > 0) item.system.pips.value = Number(amount) - 1;
+    sheet.actor.updateEmbeddedDocuments("Item", [item]);
+  });
+  bind(html, ".damage-swap", "mousedown", (ev) => {
+    const li = ev.currentTarget.closest(".item");
+    const item = itemObject(sheet.actor, li.dataset.itemId);
+    const d1 = item.system.weapon.dmg1;
+    item.system.weapon.dmg1 = item.system.weapon.dmg2;
+    item.system.weapon.dmg2 = d1;
+    sheet.actor.updateEmbeddedDocuments("Item", [item]);
+  });
 }
 
 export function sheetElement(html) {

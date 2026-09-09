@@ -49,11 +49,13 @@
 }
 
 /* Global styles */
-.window-app {
+.window-app,
+.application.mausritter {
   font-family: 'Roboto', sans-serif;
 }
 
-.window-app .window-content {
+.window-app .window-content,
+.application.mausritter .window-content {
   background: #fff;
   /* font-family: 'Montserrat', 'Arial Black', sans-serif; */
 }
@@ -1406,4 +1408,38 @@
   font-weight: bold;
   font-size: 1.5em;
   line-height: 28px;
+}
+
+/* AppV2 paper sheets stay white. No Foundry light/dark theming. */
+.application.mausritter {
+  color-scheme: light;
+}
+
+form.application.mausritter {
+  margin-top: 0;
+}
+
+.application.mausritter .window-content {
+  background: #fff;
+  background-image: none;
+  color: #161616;
+}
+
+.application.mausritter .window-content .flexcol {
+  height: 100%;
+}
+
+.application.mausritter input:not(.item-text),
+.application.mausritter select,
+.application.mausritter textarea {
+  color: #161616;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.application.mausritter .noborder {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
