@@ -39,7 +39,7 @@ export class MausritterActorSheet extends HandlebarsApplicationMixin(ActorSheetV
   get _dragDrop() {
     return this.#dragDrop ??= new foundry.applications.ux.DragDrop.implementation({
       dragSelector: ".dropitem",
-      dropSelector: null,
+      dropSelector: "#drag-area",
       permissions: {
         dragstart: this._canDragStart.bind(this),
         drop: this._canDragDrop.bind(this)

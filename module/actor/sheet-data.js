@@ -218,13 +218,46 @@ function pointerOffset(event, el) {
   };
 }
 
-function dropArea(event) {
+function dropArea(event, sheet) {
   const target = event.target instanceof Element ? event.target : null;
-  return target?.closest?.("#drag-area") ?? null;
+  const fromTarget = target?.closest?.("#drag-area");
+  if (fromTarget) return fromTarget;
+  const area = (event.currentTarget instanceof Element ? event.currentTarget.closest?.("#drag-area") : null)
+    ?? sheet?.element?.querySelector("#drag-area")
+    ?? null;
+  if (!area) return null;
+  const x = event.clientX;
+  const y = event.clientY;
+  if (x == null || y == null) return area;
+  const rect = area.getBoundingClientRect();
+  if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return null;
+  return area;
 }
 
-function dropPoint(event) {
-  return pointerOffset(event, dropArea(event));
+function dropPoint(event, sheet) {
+  return pointerOffset(event, dropArea(event, sheet));
+}
+
+function newItemData(item) {
+  const data = (item.inCompendium || item.pack)
+    ? game.items.fromCompendium(item, { clearFolder: true, keepId: false })
+    : item.toObject();
+  delete data._id;
+  delete data.folder;
+  if (!data.system) data.system = {};
+  return data;
+}
+
+function snapGhost(area, x, y, visible) {
+  let ghost = area.querySelector(".mausritter-snap-ghost");
+  if (!ghost) {
+    ghost = document.createElement("div");
+    ghost.className = "mausritter-snap-ghost";
+    ghost.setAttribute("aria-hidden", "true");
+    area.appendChild(ghost);
+  }
+  ghost.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  ghost.classList.toggle("active", !!visible);
 }
 
 function parseTranslate(el) {
@@ -367,8 +400,8 @@ function snapToSlot(x, y, area, item, actor, exceptId) {
   return best ? { x: best.x, y: best.y, snapped: true } : { x, y, snapped: false };
 }
 
-function cardOrigin(event, data) {
-  const point = dropPoint(event);
+function cardOrigin(event, data, sheet) {
+  const point = dropPoint(event, sheet);
   const offset = data?.offset ?? { x: 0, y: 0 };
   return {
     x: point.x - offset.x,
@@ -436,7 +469,19 @@ export function bindInventoryMagnet(sheet, html) {
   area.dataset.mausritterMagnet = "1";
   area.addEventListener("dragover", (event) => {
     event.preventDefault();
-    previewMagnet(sheet, event, area);
+    if (event.dataTransfer) event.dataTransfer.dropEffect = sheet._mausritterDrag ? "move" : "copy";
+    if (sheet._mausritterDrag) {
+      snapGhost(area, 0, 0, false);
+      previewMagnet(sheet, event, area);
+      return;
+    }
+    const dummy = { system: { size: { width: 1, height: 1 }, sheet: {} } };
+    const origin = dropPoint(event, sheet);
+    const snapped = snapToSlot(origin.x, origin.y, area, dummy, sheet.actor, null);
+    snapGhost(area, snapped.x, snapped.y, snapped.snapped);
+  });
+  area.addEventListener("dragleave", (event) => {
+    if (event.target === area) snapGhost(area, 0, 0, false);
   });
 }
 
@@ -451,16 +496,19 @@ export async function handleOwnedItemDrop(sheet, event, data) {
   if (!sheet.actor.isOwner) return false;
   const item = await foundry.documents.Item.fromDropData(data);
   if (!item) return false;
-  const itemData = item.toObject();
   const actor = sheet.actor;
-  const origin = cardOrigin(event, data);
-  const snapped = snapToSlot(origin.x, origin.y, dropArea(event), itemData, actor, data.itemId);
+  const area = dropArea(event, sheet);
+  if (!area) return false;
+  const origin = cardOrigin(event, data, sheet);
+  const snapped = snapToSlot(origin.x, origin.y, area, item, actor, data.itemId);
   const x = snapped.x;
   const y = snapped.y;
   if (sheet._mausritterDrag) sheet._mausritterDrag.dropped = true;
+  snapGhost(area, 0, 0, false);
 
   const sameActor = (data.actorId === actor.id)
-    || (actor.isToken && (data.tokenId === actor.token?.id));
+    || (actor.isToken && (data.tokenId === actor.token?.id))
+    || (item.parent === actor);
   if (sameActor && !event.ctrlKey) {
     const ownedId = data.itemId ?? item.id;
     const current = itemObject(actor, ownedId);
@@ -477,7 +525,7 @@ export async function handleOwnedItemDrop(sheet, event, data) {
     }
   }
 
-  if (!itemData.system) itemData.system = {};
+  const itemData = newItemData(item);
   itemData.system.sheet = sheetPosition(x, y, itemData.system.sheet);
   return actor.createEmbeddedDocuments("Item", [itemData]);
 }
