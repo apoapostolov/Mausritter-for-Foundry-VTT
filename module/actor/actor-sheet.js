@@ -8,6 +8,7 @@ import {
   bindInventoryMagnet,
   endOwnedItemDrag
 } from "./sheet-data.js";
+import { openPortraitGallery } from "../apps/portrait-gallery.js";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -17,7 +18,10 @@ export class MausritterActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     classes: ["mausritter", "actor", "character", "themed", "theme-light"],
     position: { width: 742, height: 800 },
     window: { resizable: true },
-    form: { submitOnChange: true }
+    form: { submitOnChange: true },
+    actions: {
+      openPortraitGallery: MausritterActorSheet.#onOpenPortraitGallery
+    }
   };
 
   static PARTS = {
@@ -78,5 +82,11 @@ export class MausritterActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
     if (data?.type === "Item") return handleOwnedItemDrop(this, event, data);
     return super._onDrop(event);
+  }
+
+  static async #onOpenPortraitGallery(event, _target) {
+    event.preventDefault();
+    event.stopPropagation();
+    await openPortraitGallery(this.actor);
   }
 }

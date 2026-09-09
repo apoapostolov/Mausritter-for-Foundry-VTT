@@ -1,14 +1,7 @@
 export async function postMausritterChat({ actor, content, rolls = [], whisper } = {}) {
   const ChatMessage = foundry.documents.ChatMessage.implementation;
   const usable = (rolls || []).filter(Boolean);
-  let body = content || "";
-  if (usable.length) {
-    const html = [];
-    for (const roll of usable) {
-      if (typeof roll.render === "function") html.push(await roll.render());
-    }
-    if (html.length) body += `<div class="mausritter-dice">${html.join("")}</div>`;
-  }
+  const body = content || "";
   const chatData = {
     speaker: actor
       ? ChatMessage.getSpeaker({ actor })

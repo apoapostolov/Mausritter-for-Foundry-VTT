@@ -79,5 +79,14 @@
   "Maus.RollTarget" : "Ziel",
   "Maus.RollAD" : "V/N",
   "Maus.RollMiscast" : "Zauberpatzer",
-  "Maus.RollMiscastDesc" : "Erleide [[/r !miscast!d6]] WIL-Schaden<br/>Lege nun eine WIL-Probe ab. Wenn sie misslingt, erhältst du den Zustand <i>Entkräftet</i>."
+  "Maus.RollMiscastDesc" : "Erleide [[/r !miscast!d6]] WIL-Schaden<br/>Lege nun eine WIL-Probe ab. Wenn sie misslingt, erhältst du den Zustand <i>Entkräftet</i>.",
+  "Maus.PortraitGalleryTitle" : "Wähle dein Mausritter",
+  "Maus.PortraitGalleryOpen" : "Porträtgalerie",
+  "Maus.PortraitGalleryPick" : "Diese Maus wählen",
+  "Maus.PortraitGalleryConfirm" : "Mausritter bestätigen",
+  "Maus.PortraitGalleryEmpty" : "Es sind noch keine Mausporträts installiert.",
+  "Maus.PortraitGalleryNoPermission" : "Du kannst das Porträt dieser Maus nicht ändern.",
+  "Maus.PortraitGalleryMice" : "Mäuse",
+  "Maus.PortraitGalleryClans" : "Sippen",
+  "Maus.PortraitGalleryRats" : "Ratten"
 }

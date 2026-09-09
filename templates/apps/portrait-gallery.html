@@ -1,0 +1,23 @@
+<div class="mausritter-portrait-gallery">
+  {{#if empty}}
+  <p class="mausritter-portrait-empty">{{localize "Maus.PortraitGalleryEmpty"}}</p>
+  {{else}}
+  {{#each sections}}
+  <section class="mausritter-portrait-section" data-section="{{id}}">
+    <h2 class="mausritter-portrait-heading">{{label}}</h2>
+    <div class="mausritter-portrait-grid" role="group" aria-label="{{label}}">
+      {{#each portraits}}
+      <button type="button" class="mausritter-portrait-tile{{#if selected}} is-selected{{/if}}"
+        data-action="pick" data-src="{{src}}"
+        title="{{label}}"
+        aria-pressed="{{#if selected}}true{{else}}false{{/if}}"
+        aria-label="{{#if label}}{{label}}{{else}}{{localize "Maus.PortraitGalleryPick"}}{{/if}}">
+        <img src="{{src}}" alt="" draggable="false" loading="lazy" decoding="async" />
+        <span class="mausritter-portrait-confirm">{{localize "Maus.PortraitGalleryConfirm"}}</span>
+      </button>
+      {{/each}}
+    </div>
+  </section>
+  {{/each}}
+  {{/if}}
+</div>

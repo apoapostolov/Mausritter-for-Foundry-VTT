@@ -1,0 +1,2702 @@
+[
+ {
+  "id": "B001",
+  "group": "longhaired-clans",
+  "label": "Angora / alert",
+  "file": "Mouse-B001.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B001.png",
+  "drawn_pct": 56.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B002",
+  "group": "longhaired-clans",
+  "label": "Texel / calm",
+  "file": "Mouse-B002.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B002.png",
+  "drawn_pct": 58.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B003",
+  "group": "longhaired-clans",
+  "label": "Astrex curly-coat / curious",
+  "file": "Mouse-B003.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B003.png",
+  "drawn_pct": 58.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B004",
+  "group": "longhaired-clans",
+  "label": "Frizzle / proud",
+  "file": "Mouse-B004.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B004.png",
+  "drawn_pct": 47.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B005",
+  "group": "longhaired-clans",
+  "label": "Longhaired Satin / wary",
+  "file": "Mouse-B005.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B005.png",
+  "drawn_pct": 66.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B006",
+  "group": "longhaired-clans",
+  "label": "Angora Rex / gentle + leaf cloak",
+  "file": "Mouse-B006.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B006.png",
+  "drawn_pct": 65.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B007",
+  "group": "longhaired-clans",
+  "label": "Fuzzy-coated / alert",
+  "file": "Mouse-B007.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B007.png",
+  "drawn_pct": 58.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B008",
+  "group": "longhaired-clans",
+  "label": "Longhaired Dove / calm",
+  "file": "Mouse-B008.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B008.png",
+  "drawn_pct": 47.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B009",
+  "group": "longhaired-clans",
+  "label": "Longhaired Black / curious",
+  "file": "Mouse-B009.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B009.png",
+  "drawn_pct": 54.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B010",
+  "group": "longhaired-clans",
+  "label": "Longhaired Champagne / proud",
+  "file": "Mouse-B010.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B010.png",
+  "drawn_pct": 60.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B011",
+  "group": "longhaired-clans",
+  "label": "Longhaired Siamese / wary",
+  "file": "Mouse-B011.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B011.png",
+  "drawn_pct": 58.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B012",
+  "group": "longhaired-clans",
+  "label": "Longhaired Brindle / gentle",
+  "file": "Mouse-B012.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B012.png",
+  "drawn_pct": 60.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B013",
+  "group": "longhaired-clans",
+  "label": "Longhaired Variegated / alert",
+  "file": "Mouse-B013.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B013.png",
+  "drawn_pct": 59.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B014",
+  "group": "longhaired-clans",
+  "label": "Texel Agouti / calm",
+  "file": "Mouse-B014.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B014.png",
+  "drawn_pct": 61.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B015",
+  "group": "longhaired-clans",
+  "label": "Texel Silver / curious",
+  "file": "Mouse-B015.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B015.png",
+  "drawn_pct": 55.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B016",
+  "group": "longhaired-clans",
+  "label": "Astrex Standard / proud + needle sword",
+  "file": "Mouse-B016.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B016.png",
+  "drawn_pct": 53.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B017",
+  "group": "longhaired-clans",
+  "label": "Angora Himalayan / wary",
+  "file": "Mouse-B017.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B017.png",
+  "drawn_pct": 59.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B018",
+  "group": "longhaired-clans",
+  "label": "Longhaired Cream / gentle",
+  "file": "Mouse-B018.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B018.png",
+  "drawn_pct": 48.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B019",
+  "group": "longhaired-clans",
+  "label": "Longhaired Cinnamon / alert",
+  "file": "Mouse-B019.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B019.png",
+  "drawn_pct": 58.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B020",
+  "group": "longhaired-clans",
+  "label": "Caracul curly-coat / calm",
+  "file": "Mouse-B020.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B020.png",
+  "drawn_pct": 55.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B021",
+  "group": "marked",
+  "label": "Dutch-marked / curious",
+  "file": "Mouse-B021.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B021.png",
+  "drawn_pct": 38.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B022",
+  "group": "marked",
+  "label": "Broken-marked / proud",
+  "file": "Mouse-B022.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B022.png",
+  "drawn_pct": 51.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B023",
+  "group": "marked",
+  "label": "Variegated / wary",
+  "file": "Mouse-B023.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B023.png",
+  "drawn_pct": 53.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B024",
+  "group": "marked",
+  "label": "Rumpwhite / gentle",
+  "file": "Mouse-B024.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B024.png",
+  "drawn_pct": 59.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B025",
+  "group": "marked",
+  "label": "Splashed / alert",
+  "file": "Mouse-B025.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B025.png",
+  "drawn_pct": 51.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B026",
+  "group": "marked",
+  "label": "Merle / calm + matchstick club",
+  "file": "Mouse-B026.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B026.png",
+  "drawn_pct": 61.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B027",
+  "group": "marked",
+  "label": "Siamese-pointed / curious",
+  "file": "Mouse-B027.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B027.png",
+  "drawn_pct": 51.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B028",
+  "group": "marked",
+  "label": "Himalayan-pointed / proud",
+  "file": "Mouse-B028.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B028.png",
+  "drawn_pct": 62.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B029",
+  "group": "marked",
+  "label": "Banded / wary",
+  "file": "Mouse-B029.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B029.png",
+  "drawn_pct": 50.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B030",
+  "group": "marked",
+  "label": "Hereford-marked / gentle",
+  "file": "Mouse-B030.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B030.png",
+  "drawn_pct": 50.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B031",
+  "group": "marked",
+  "label": "Even-marked / alert",
+  "file": "Mouse-B031.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B031.png",
+  "drawn_pct": 48.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B032",
+  "group": "marked",
+  "label": "Tricolour / calm",
+  "file": "Mouse-B032.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B032.png",
+  "drawn_pct": 55.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B033",
+  "group": "marked",
+  "label": "Belted / curious",
+  "file": "Mouse-B033.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B033.png",
+  "drawn_pct": 47.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B034",
+  "group": "marked",
+  "label": "Capped / proud",
+  "file": "Mouse-B034.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B034.png",
+  "drawn_pct": 56.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B035",
+  "group": "marked",
+  "label": "Hooded / wary",
+  "file": "Mouse-B035.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B035.png",
+  "drawn_pct": 58.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B036",
+  "group": "marked",
+  "label": "Spotted / gentle + fork trident",
+  "file": "Mouse-B036.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B036.png",
+  "drawn_pct": 59.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B037",
+  "group": "marked",
+  "label": "Roan / alert",
+  "file": "Mouse-B037.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B037.png",
+  "drawn_pct": 38.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B038",
+  "group": "marked",
+  "label": "Blue Splashed / calm",
+  "file": "Mouse-B038.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B038.png",
+  "drawn_pct": 58.2,
+  "desaturated_px": 488
+ },
+ {
+  "id": "B039",
+  "group": "marked",
+  "label": "Chocolate Banded / curious",
+  "file": "Mouse-B039.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B039.png",
+  "drawn_pct": 61.8,
+  "desaturated_px": 587
+ },
+ {
+  "id": "B040",
+  "group": "marked",
+  "label": "Black Variegated / proud",
+  "file": "Mouse-B040.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B040.png",
+  "drawn_pct": 52.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B041",
+  "group": "wild-ones",
+  "label": "Harvest mouse / wary",
+  "file": "Mouse-B041.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B041.png",
+  "drawn_pct": 54.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B042",
+  "group": "wild-ones",
+  "label": "Wood mouse / gentle",
+  "file": "Mouse-B042.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B042.png",
+  "drawn_pct": 50.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B043",
+  "group": "wild-ones",
+  "label": "Yellow-necked mouse / alert",
+  "file": "Mouse-B043.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B043.png",
+  "drawn_pct": 44.2,
+  "desaturated_px": 12740
+ },
+ {
+  "id": "B044",
+  "group": "wild-ones",
+  "label": "Striped field mouse / calm",
+  "file": "Mouse-B044.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B044.png",
+  "drawn_pct": 53.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B045",
+  "group": "wild-ones",
+  "label": "Steppe mouse / curious",
+  "file": "Mouse-B045.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B045.png",
+  "drawn_pct": 55.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B046",
+  "group": "wild-ones",
+  "label": "Mound-building mouse / proud + walnut-shell breastplate",
+  "file": "Mouse-B046.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B046.png",
+  "drawn_pct": 55.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B047",
+  "group": "wild-ones",
+  "label": "Algerian mouse / wary",
+  "file": "Mouse-B047.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B047.png",
+  "drawn_pct": 49.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B048",
+  "group": "wild-ones",
+  "label": "Macedonian mouse / gentle",
+  "file": "Mouse-B048.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B048.png",
+  "drawn_pct": 60.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B049",
+  "group": "wild-ones",
+  "label": "Cypriot mouse / alert",
+  "file": "Mouse-B049.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B049.png",
+  "drawn_pct": 54.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B050",
+  "group": "wild-ones",
+  "label": "African pygmy mouse / calm",
+  "file": "Mouse-B050.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B050.png",
+  "drawn_pct": 49.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B051",
+  "group": "wild-ones",
+  "label": "Deer mouse / curious",
+  "file": "Mouse-B051.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B051.png",
+  "drawn_pct": 50.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B052",
+  "group": "wild-ones",
+  "label": "Cactus mouse / proud",
+  "file": "Mouse-B052.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B052.png",
+  "drawn_pct": 59.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B053",
+  "group": "wild-ones",
+  "label": "Grasshopper mouse / wary",
+  "file": "Mouse-B053.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B053.png",
+  "drawn_pct": 52.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B054",
+  "group": "wild-ones",
+  "label": "Cairo spiny mouse / gentle",
+  "file": "Mouse-B054.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B054.png",
+  "drawn_pct": 49.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B055",
+  "group": "wild-ones",
+  "label": "Golden spiny mouse / alert",
+  "file": "Mouse-B055.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B055.png",
+  "drawn_pct": 59.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B056",
+  "group": "wild-ones",
+  "label": "Crete spiny mouse / calm + acorn-cap pauldrons",
+  "file": "Mouse-B056.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B056.png",
+  "drawn_pct": 62.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B057",
+  "group": "wild-ones",
+  "label": "Zebra grass mouse / curious",
+  "file": "Mouse-B057.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B057.png",
+  "drawn_pct": 70.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B058",
+  "group": "wild-ones",
+  "label": "Multimammate mouse / proud",
+  "file": "Mouse-B058.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B058.png",
+  "drawn_pct": 46.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B059",
+  "group": "wild-ones",
+  "label": "Birch mouse / wary",
+  "file": "Mouse-B059.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B059.png",
+  "drawn_pct": 57.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B060",
+  "group": "wild-ones",
+  "label": "Fat mouse / gentle",
+  "file": "Mouse-B060.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B060.png",
+  "drawn_pct": 52.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B061",
+  "group": "oddities",
+  "label": "Manx tailless / alert",
+  "file": "Mouse-B061.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B061.png",
+  "drawn_pct": 73.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B062",
+  "group": "oddities",
+  "label": "Dumbo big-eared / calm",
+  "file": "Mouse-B062.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B062.png",
+  "drawn_pct": 52.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B063",
+  "group": "oddities",
+  "label": "Hairless / curious",
+  "file": "Mouse-B063.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B063.png",
+  "drawn_pct": 45.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B064",
+  "group": "oddities",
+  "label": "Fuzzy / proud",
+  "file": "Mouse-B064.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B064.png",
+  "drawn_pct": 60.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B065",
+  "group": "oddities",
+  "label": "Rex Dumbo / wary",
+  "file": "Mouse-B065.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B065.png",
+  "drawn_pct": 58.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B066",
+  "group": "oddities",
+  "label": "Silvered / gentle + thimble helm",
+  "file": "Mouse-B066.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B066.png",
+  "drawn_pct": 53.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B067",
+  "group": "oddities",
+  "label": "Pearl / alert",
+  "file": "Mouse-B067.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B067.png",
+  "drawn_pct": 58.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B068",
+  "group": "oddities",
+  "label": "Argente / calm",
+  "file": "Mouse-B068.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B068.png",
+  "drawn_pct": 41.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B069",
+  "group": "oddities",
+  "label": "Sable / curious",
+  "file": "Mouse-B069.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B069.png",
+  "drawn_pct": 57.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B070",
+  "group": "oddities",
+  "label": "Marten Sable / proud",
+  "file": "Mouse-B070.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B070.png",
+  "drawn_pct": 44.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B071",
+  "group": "oddities",
+  "label": "Silver Fox / wary",
+  "file": "Mouse-B071.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B071.png",
+  "drawn_pct": 55.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B072",
+  "group": "oddities",
+  "label": "Seal-point / gentle",
+  "file": "Mouse-B072.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B072.png",
+  "drawn_pct": 77.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B073",
+  "group": "oddities",
+  "label": "Blue-point / alert",
+  "file": "Mouse-B073.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B073.png",
+  "drawn_pct": 49.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B074",
+  "group": "oddities",
+  "label": "Ivory / calm",
+  "file": "Mouse-B074.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B074.png",
+  "drawn_pct": 43.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B075",
+  "group": "oddities",
+  "label": "Platinum / curious",
+  "file": "Mouse-B075.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B075.png",
+  "drawn_pct": 51.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B076",
+  "group": "oddities",
+  "label": "Lilac / proud + button buckler",
+  "file": "Mouse-B076.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B076.png",
+  "drawn_pct": 55.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B077",
+  "group": "oddities",
+  "label": "Beige / wary",
+  "file": "Mouse-B077.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B077.png",
+  "drawn_pct": 54.0,
+  "desaturated_px": 1
+ },
+ {
+  "id": "B078",
+  "group": "oddities",
+  "label": "Short-eared / gentle",
+  "file": "Mouse-B078.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B078.png",
+  "drawn_pct": 46.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B079",
+  "group": "oddities",
+  "label": "Curled-tail / alert",
+  "file": "Mouse-B079.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B079.png",
+  "drawn_pct": 54.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B080",
+  "group": "oddities",
+  "label": "Satin-coated / calm",
+  "file": "Mouse-B080.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B080.png",
+  "drawn_pct": 63.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B081",
+  "group": "moon-pale",
+  "label": "White / curious",
+  "file": "Mouse-B081.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B081.png",
+  "drawn_pct": 55.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B082",
+  "group": "moon-pale",
+  "label": "Ivory coated / proud",
+  "file": "Mouse-B082.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B082.png",
+  "drawn_pct": 43.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B083",
+  "group": "moon-pale",
+  "label": "Cream coated / wary",
+  "file": "Mouse-B083.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B083.png",
+  "drawn_pct": 58.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B084",
+  "group": "moon-pale",
+  "label": "Champagne coated / gentle",
+  "file": "Mouse-B084.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B084.png",
+  "drawn_pct": 55.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B085",
+  "group": "moon-pale",
+  "label": "Platinum coated / alert",
+  "file": "Mouse-B085.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B085.png",
+  "drawn_pct": 45.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B086",
+  "group": "moon-pale",
+  "label": "Silver coated / calm + pin dagger",
+  "file": "Mouse-B086.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B086.png",
+  "drawn_pct": 69.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B087",
+  "group": "moon-pale",
+  "label": "Dove coated / curious",
+  "file": "Mouse-B087.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B087.png",
+  "drawn_pct": 54.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B088",
+  "group": "moon-pale",
+  "label": "Lilac coated / proud",
+  "file": "Mouse-B088.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B088.png",
+  "drawn_pct": 48.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B089",
+  "group": "moon-pale",
+  "label": "Beige coated / wary",
+  "file": "Mouse-B089.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B089.png",
+  "drawn_pct": 53.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B090",
+  "group": "moon-pale",
+  "label": "Pink-eyed white / gentle",
+  "file": "Mouse-B090.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B090.png",
+  "drawn_pct": 46.1,
+  "desaturated_px": 11
+ },
+ {
+  "id": "B091",
+  "group": "moon-pale",
+  "label": "Silvered Agouti / alert",
+  "file": "Mouse-B091.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B091.png",
+  "drawn_pct": 39.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B092",
+  "group": "moon-pale",
+  "label": "Argente Cream / calm",
+  "file": "Mouse-B092.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B092.png",
+  "drawn_pct": 40.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B093",
+  "group": "moon-pale",
+  "label": "Himalayan white / curious",
+  "file": "Mouse-B093.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B093.png",
+  "drawn_pct": 47.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B094",
+  "group": "moon-pale",
+  "label": "Fawn Satin / proud",
+  "file": "Mouse-B094.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B094.png",
+  "drawn_pct": 57.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B095",
+  "group": "moon-pale",
+  "label": "Astrex White / wary",
+  "file": "Mouse-B095.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B095.png",
+  "drawn_pct": 45.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B096",
+  "group": "moon-pale",
+  "label": "Angora White / gentle + twig spear",
+  "file": "Mouse-B096.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B096.png",
+  "drawn_pct": 55.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B097",
+  "group": "moon-pale",
+  "label": "Dutch White / alert",
+  "file": "Mouse-B097.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B097.png",
+  "drawn_pct": 57.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B098",
+  "group": "moon-pale",
+  "label": "Satin Ivory / calm",
+  "file": "Mouse-B098.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B098.png",
+  "drawn_pct": 44.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B099",
+  "group": "moon-pale",
+  "label": "Pearl White / curious",
+  "file": "Mouse-B099.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B099.png",
+  "drawn_pct": 44.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "B100",
+  "group": "moon-pale",
+  "label": "Ghost Grey / proud",
+  "file": "Mouse-B100.png",
+  "img": "systems/mausritter/images/gallery/Mouse-B100.png",
+  "drawn_pct": 40.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M001",
+  "group": "normal",
+  "label": "happiness / big round ears",
+  "file": "Mouse-M001.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M001.png",
+  "drawn_pct": 45.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M002",
+  "group": "normal",
+  "label": "determination / one folded ear",
+  "file": "Mouse-M002.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M002.png",
+  "drawn_pct": 37.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M003",
+  "group": "normal",
+  "label": "excitement / extra-long whiskers",
+  "file": "Mouse-M003.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M003.png",
+  "drawn_pct": 52.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M004",
+  "group": "normal",
+  "label": "curiosity / short neat whiskers",
+  "file": "Mouse-M004.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M004.png",
+  "drawn_pct": 52.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M005",
+  "group": "normal",
+  "label": "bravery / freckled snout",
+  "file": "Mouse-M005.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M005.png",
+  "drawn_pct": 52.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M006",
+  "group": "normal",
+  "label": "friendliness / fluffy cheeks",
+  "file": "Mouse-M006.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M006.png",
+  "drawn_pct": 52.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M007",
+  "group": "normal",
+  "label": "pride / sleek combed fur + thimble helm",
+  "file": "Mouse-M007.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M007.png",
+  "drawn_pct": 60.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M008",
+  "group": "normal",
+  "label": "surprise / small button nose",
+  "file": "Mouse-M008.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M008.png",
+  "drawn_pct": 47.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M009",
+  "group": "normal",
+  "label": "thoughtfulness / gapped front teeth",
+  "file": "Mouse-M009.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M009.png",
+  "drawn_pct": 54.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M010",
+  "group": "normal",
+  "label": "worry / single scarred cheek",
+  "file": "Mouse-M010.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M010.png",
+  "drawn_pct": 66.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M011",
+  "group": "normal",
+  "label": "fear / tall narrow ears",
+  "file": "Mouse-M011.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M011.png",
+  "drawn_pct": 42.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M012",
+  "group": "normal",
+  "label": "embarrassment / tiny rounded ears",
+  "file": "Mouse-M012.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M012.png",
+  "drawn_pct": 61.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M013",
+  "group": "normal",
+  "label": "playfulness / crooked whisker",
+  "file": "Mouse-M013.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M013.png",
+  "drawn_pct": 50.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M014",
+  "group": "normal",
+  "label": "exhaustion / double-crown fur swirl",
+  "file": "Mouse-M014.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M014.png",
+  "drawn_pct": 51.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M015",
+  "group": "normal",
+  "label": "grumpiness / speckled ears",
+  "file": "Mouse-M015.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M015.png",
+  "drawn_pct": 52.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M016",
+  "group": "normal",
+  "label": "slyness / chipped tooth",
+  "file": "Mouse-M016.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M016.png",
+  "drawn_pct": 52.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M017",
+  "group": "normal",
+  "label": "zaniness / broad nose + bottlecap shield",
+  "file": "Mouse-M017.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M017.png",
+  "drawn_pct": 64.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M018",
+  "group": "normal",
+  "label": "awe / narrow snout",
+  "file": "Mouse-M018.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M018.png",
+  "drawn_pct": 38.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M019",
+  "group": "normal",
+  "label": "suspicion / tufted head-fur",
+  "file": "Mouse-M019.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M019.png",
+  "drawn_pct": 61.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M020",
+  "group": "normal",
+  "label": "smugness / tail draped over shoulder",
+  "file": "Mouse-M020.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M020.png",
+  "drawn_pct": 48.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M021",
+  "group": "normal",
+  "label": "daydreaming / big round ears",
+  "file": "Mouse-M021.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M021.png",
+  "drawn_pct": 59.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M022",
+  "group": "normal",
+  "label": "stage fright / one folded ear",
+  "file": "Mouse-M022.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M022.png",
+  "drawn_pct": 42.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M023",
+  "group": "normal",
+  "label": "stubbornness / extra-long whiskers",
+  "file": "Mouse-M023.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M023.png",
+  "drawn_pct": 42.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M024",
+  "group": "normal",
+  "label": "comic relief / short neat whiskers",
+  "file": "Mouse-M024.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M024.png",
+  "drawn_pct": 48.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M025",
+  "group": "normal",
+  "label": "happiness / freckled snout",
+  "file": "Mouse-M025.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M025.png",
+  "drawn_pct": 48.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M026",
+  "group": "normal",
+  "label": "determination / fluffy cheeks",
+  "file": "Mouse-M026.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M026.png",
+  "drawn_pct": 52.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M027",
+  "group": "normal",
+  "label": "excitement / sleek combed fur",
+  "file": "Mouse-M027.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M027.png",
+  "drawn_pct": 53.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M028",
+  "group": "normal",
+  "label": "curiosity / small button nose + thimble helm",
+  "file": "Mouse-M028.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M028.png",
+  "drawn_pct": 57.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M029",
+  "group": "normal",
+  "label": "bravery / gapped front teeth",
+  "file": "Mouse-M029.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M029.png",
+  "drawn_pct": 58.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M030",
+  "group": "normal",
+  "label": "friendliness / single scarred cheek",
+  "file": "Mouse-M030.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M030.png",
+  "drawn_pct": 53.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M031",
+  "group": "normal",
+  "label": "pride / tall narrow ears",
+  "file": "Mouse-M031.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M031.png",
+  "drawn_pct": 56.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M032",
+  "group": "normal",
+  "label": "surprise / tiny rounded ears",
+  "file": "Mouse-M032.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M032.png",
+  "drawn_pct": 50.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M033",
+  "group": "normal",
+  "label": "thoughtfulness / crooked whisker",
+  "file": "Mouse-M033.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M033.png",
+  "drawn_pct": 45.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M034",
+  "group": "normal",
+  "label": "worry / double-crown fur swirl",
+  "file": "Mouse-M034.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M034.png",
+  "drawn_pct": 45.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M035",
+  "group": "normal",
+  "label": "fear / speckled ears",
+  "file": "Mouse-M035.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M035.png",
+  "drawn_pct": 53.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M036",
+  "group": "normal",
+  "label": "embarrassment / chipped tooth",
+  "file": "Mouse-M036.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M036.png",
+  "drawn_pct": 62.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M037",
+  "group": "normal",
+  "label": "playfulness / broad nose",
+  "file": "Mouse-M037.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M037.png",
+  "drawn_pct": 57.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M038",
+  "group": "normal",
+  "label": "exhaustion / narrow snout + bottlecap shield",
+  "file": "Mouse-M038.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M038.png",
+  "drawn_pct": 62.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M039",
+  "group": "normal",
+  "label": "grumpiness / tufted head-fur",
+  "file": "Mouse-M039.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M039.png",
+  "drawn_pct": 61.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M040",
+  "group": "normal",
+  "label": "slyness / tail draped over shoulder",
+  "file": "Mouse-M040.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M040.png",
+  "drawn_pct": 49.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M041",
+  "group": "normal",
+  "label": "zaniness / big round ears",
+  "file": "Mouse-M041.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M041.png",
+  "drawn_pct": 52.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M042",
+  "group": "normal",
+  "label": "awe / one folded ear",
+  "file": "Mouse-M042.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M042.png",
+  "drawn_pct": 39.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M043",
+  "group": "normal",
+  "label": "comic relief / extra-long whiskers",
+  "file": "Mouse-M043.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M043.png",
+  "drawn_pct": 53.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M044",
+  "group": "normal",
+  "label": "happiness / short neat whiskers",
+  "file": "Mouse-M044.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M044.png",
+  "drawn_pct": 44.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M045",
+  "group": "normal",
+  "label": "determination / freckled snout",
+  "file": "Mouse-M045.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M045.png",
+  "drawn_pct": 59.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M046",
+  "group": "normal",
+  "label": "excitement / fluffy cheeks",
+  "file": "Mouse-M046.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M046.png",
+  "drawn_pct": 48.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M047",
+  "group": "normal",
+  "label": "curiosity / sleek combed fur",
+  "file": "Mouse-M047.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M047.png",
+  "drawn_pct": 43.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M048",
+  "group": "normal",
+  "label": "bravery / small button nose + needle sword",
+  "file": "Mouse-M048.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M048.png",
+  "drawn_pct": 56.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M049",
+  "group": "normal",
+  "label": "friendliness / gapped front teeth",
+  "file": "Mouse-M049.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M049.png",
+  "drawn_pct": 51.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M050",
+  "group": "normal",
+  "label": "pride / single scarred cheek",
+  "file": "Mouse-M050.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M050.png",
+  "drawn_pct": 65.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M051",
+  "group": "normal",
+  "label": "surprise / tall narrow ears",
+  "file": "Mouse-M051.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M051.png",
+  "drawn_pct": 50.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M052",
+  "group": "normal",
+  "label": "thoughtfulness / tiny rounded ears",
+  "file": "Mouse-M052.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M052.png",
+  "drawn_pct": 65.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M053",
+  "group": "normal",
+  "label": "worry / crooked whisker",
+  "file": "Mouse-M053.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M053.png",
+  "drawn_pct": 48.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M054",
+  "group": "normal",
+  "label": "fear / double-crown fur swirl",
+  "file": "Mouse-M054.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M054.png",
+  "drawn_pct": 49.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M055",
+  "group": "normal",
+  "label": "embarrassment / speckled ears",
+  "file": "Mouse-M055.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M055.png",
+  "drawn_pct": 53.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M056",
+  "group": "normal",
+  "label": "playfulness / chipped tooth",
+  "file": "Mouse-M056.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M056.png",
+  "drawn_pct": 62.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M057",
+  "group": "normal",
+  "label": "exhaustion / broad nose",
+  "file": "Mouse-M057.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M057.png",
+  "drawn_pct": 54.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M058",
+  "group": "normal",
+  "label": "grumpiness / narrow snout + acorn-cap pauldrons",
+  "file": "Mouse-M058.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M058.png",
+  "drawn_pct": 83.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M059",
+  "group": "normal",
+  "label": "slyness / tufted head-fur",
+  "file": "Mouse-M059.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M059.png",
+  "drawn_pct": 55.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M060",
+  "group": "normal",
+  "label": "zaniness / tail draped over shoulder",
+  "file": "Mouse-M060.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M060.png",
+  "drawn_pct": 62.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M061",
+  "group": "normal",
+  "label": "awe / big round ears",
+  "file": "Mouse-M061.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M061.png",
+  "drawn_pct": 50.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M062",
+  "group": "normal",
+  "label": "happiness / one folded ear",
+  "file": "Mouse-M062.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M062.png",
+  "drawn_pct": 41.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M063",
+  "group": "normal",
+  "label": "determination / extra-long whiskers",
+  "file": "Mouse-M063.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M063.png",
+  "drawn_pct": 48.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M064",
+  "group": "normal",
+  "label": "excitement / short neat whiskers",
+  "file": "Mouse-M064.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M064.png",
+  "drawn_pct": 51.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M065",
+  "group": "normal",
+  "label": "curiosity / freckled snout",
+  "file": "Mouse-M065.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M065.png",
+  "drawn_pct": 60.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M066",
+  "group": "normal",
+  "label": "bravery / fluffy cheeks",
+  "file": "Mouse-M066.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M066.png",
+  "drawn_pct": 52.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M067",
+  "group": "normal",
+  "label": "friendliness / sleek combed fur",
+  "file": "Mouse-M067.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M067.png",
+  "drawn_pct": 53.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M068",
+  "group": "normal",
+  "label": "pride / small button nose + twig spear",
+  "file": "Mouse-M068.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M068.png",
+  "drawn_pct": 52.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M069",
+  "group": "normal",
+  "label": "surprise / gapped front teeth",
+  "file": "Mouse-M069.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M069.png",
+  "drawn_pct": 52.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M070",
+  "group": "normal",
+  "label": "thoughtfulness / single scarred cheek",
+  "file": "Mouse-M070.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M070.png",
+  "drawn_pct": 48.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M071",
+  "group": "normal",
+  "label": "worry / tall narrow ears",
+  "file": "Mouse-M071.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M071.png",
+  "drawn_pct": 41.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M072",
+  "group": "normal",
+  "label": "fear / tiny rounded ears",
+  "file": "Mouse-M072.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M072.png",
+  "drawn_pct": 54.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M073",
+  "group": "normal",
+  "label": "embarrassment / crooked whisker",
+  "file": "Mouse-M073.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M073.png",
+  "drawn_pct": 47.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M074",
+  "group": "normal",
+  "label": "playfulness / double-crown fur swirl",
+  "file": "Mouse-M074.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M074.png",
+  "drawn_pct": 54.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M075",
+  "group": "normal",
+  "label": "exhaustion / speckled ears",
+  "file": "Mouse-M075.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M075.png",
+  "drawn_pct": 50.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M076",
+  "group": "normal",
+  "label": "grumpiness / chipped tooth",
+  "file": "Mouse-M076.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M076.png",
+  "drawn_pct": 50.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M077",
+  "group": "normal",
+  "label": "slyness / broad nose",
+  "file": "Mouse-M077.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M077.png",
+  "drawn_pct": 51.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M078",
+  "group": "normal",
+  "label": "happiness / narrow snout + leaf cloak",
+  "file": "Mouse-M078.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M078.png",
+  "drawn_pct": 50.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M079",
+  "group": "normal",
+  "label": "determination / tufted head-fur",
+  "file": "Mouse-M079.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M079.png",
+  "drawn_pct": 54.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M080",
+  "group": "normal",
+  "label": "excitement / tail draped over shoulder",
+  "file": "Mouse-M080.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M080.png",
+  "drawn_pct": 49.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M081",
+  "group": "normal",
+  "label": "curiosity / big round ears",
+  "file": "Mouse-M081.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M081.png",
+  "drawn_pct": 46.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M082",
+  "group": "normal",
+  "label": "bravery / one folded ear",
+  "file": "Mouse-M082.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M082.png",
+  "drawn_pct": 43.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M083",
+  "group": "normal",
+  "label": "friendliness / extra-long whiskers",
+  "file": "Mouse-M083.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M083.png",
+  "drawn_pct": 41.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M084",
+  "group": "normal",
+  "label": "pride / short neat whiskers",
+  "file": "Mouse-M084.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M084.png",
+  "drawn_pct": 51.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M085",
+  "group": "normal",
+  "label": "surprise / freckled snout",
+  "file": "Mouse-M085.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M085.png",
+  "drawn_pct": 53.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M086",
+  "group": "normal",
+  "label": "thoughtfulness / fluffy cheeks",
+  "file": "Mouse-M086.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M086.png",
+  "drawn_pct": 48.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M087",
+  "group": "normal",
+  "label": "worry / sleek combed fur",
+  "file": "Mouse-M087.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M087.png",
+  "drawn_pct": 58.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M088",
+  "group": "normal",
+  "label": "fear / small button nose + walnut-shell breastplate",
+  "file": "Mouse-M088.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M088.png",
+  "drawn_pct": 70.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M089",
+  "group": "normal",
+  "label": "embarrassment / gapped front teeth",
+  "file": "Mouse-M089.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M089.png",
+  "drawn_pct": 47.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M090",
+  "group": "normal",
+  "label": "playfulness / single scarred cheek",
+  "file": "Mouse-M090.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M090.png",
+  "drawn_pct": 55.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M091",
+  "group": "normal",
+  "label": "happiness / tall narrow ears",
+  "file": "Mouse-M091.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M091.png",
+  "drawn_pct": 46.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M092",
+  "group": "normal",
+  "label": "determination / tiny rounded ears",
+  "file": "Mouse-M092.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M092.png",
+  "drawn_pct": 50.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M093",
+  "group": "normal",
+  "label": "excitement / crooked whisker",
+  "file": "Mouse-M093.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M093.png",
+  "drawn_pct": 52.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M094",
+  "group": "normal",
+  "label": "curiosity / double-crown fur swirl",
+  "file": "Mouse-M094.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M094.png",
+  "drawn_pct": 65.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M095",
+  "group": "normal",
+  "label": "bravery / speckled ears",
+  "file": "Mouse-M095.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M095.png",
+  "drawn_pct": 50.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M096",
+  "group": "normal",
+  "label": "friendliness / chipped tooth",
+  "file": "Mouse-M096.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M096.png",
+  "drawn_pct": 55.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M097",
+  "group": "normal",
+  "label": "pride / broad nose",
+  "file": "Mouse-M097.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M097.png",
+  "drawn_pct": 46.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M098",
+  "group": "normal",
+  "label": "surprise / narrow snout + pin dagger",
+  "file": "Mouse-M098.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M098.png",
+  "drawn_pct": 54.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M099",
+  "group": "normal",
+  "label": "thoughtfulness / tufted head-fur",
+  "file": "Mouse-M099.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M099.png",
+  "drawn_pct": 40.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M100",
+  "group": "normal",
+  "label": "worry / tail draped over shoulder",
+  "file": "Mouse-M100.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M100.png",
+  "drawn_pct": 57.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M101",
+  "group": "normal",
+  "label": "fear / big round ears",
+  "file": "Mouse-M101.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M101.png",
+  "drawn_pct": 62.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M102",
+  "group": "normal",
+  "label": "happiness / one folded ear",
+  "file": "Mouse-M102.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M102.png",
+  "drawn_pct": 46.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M103",
+  "group": "normal",
+  "label": "determination / extra-long whiskers",
+  "file": "Mouse-M103.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M103.png",
+  "drawn_pct": 53.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M104",
+  "group": "normal",
+  "label": "excitement / short neat whiskers",
+  "file": "Mouse-M104.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M104.png",
+  "drawn_pct": 55.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M105",
+  "group": "normal",
+  "label": "curiosity / freckled snout",
+  "file": "Mouse-M105.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M105.png",
+  "drawn_pct": 41.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M106",
+  "group": "normal",
+  "label": "bravery / fluffy cheeks",
+  "file": "Mouse-M106.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M106.png",
+  "drawn_pct": 54.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M107",
+  "group": "normal",
+  "label": "friendliness / sleek combed fur",
+  "file": "Mouse-M107.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M107.png",
+  "drawn_pct": 47.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M108",
+  "group": "normal",
+  "label": "pride / small button nose + spool helm",
+  "file": "Mouse-M108.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M108.png",
+  "drawn_pct": 81.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M109",
+  "group": "normal",
+  "label": "surprise / gapped front teeth",
+  "file": "Mouse-M109.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M109.png",
+  "drawn_pct": 45.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M110",
+  "group": "normal",
+  "label": "happiness / single scarred cheek",
+  "file": "Mouse-M110.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M110.png",
+  "drawn_pct": 47.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M111",
+  "group": "normal",
+  "label": "determination / tall narrow ears",
+  "file": "Mouse-M111.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M111.png",
+  "drawn_pct": 47.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M112",
+  "group": "normal",
+  "label": "excitement / tiny rounded ears",
+  "file": "Mouse-M112.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M112.png",
+  "drawn_pct": 49.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M113",
+  "group": "normal",
+  "label": "curiosity / crooked whisker",
+  "file": "Mouse-M113.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M113.png",
+  "drawn_pct": 56.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M114",
+  "group": "normal",
+  "label": "bravery / double-crown fur swirl",
+  "file": "Mouse-M114.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M114.png",
+  "drawn_pct": 50.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M115",
+  "group": "normal",
+  "label": "friendliness / speckled ears",
+  "file": "Mouse-M115.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M115.png",
+  "drawn_pct": 60.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M116",
+  "group": "normal",
+  "label": "happiness / chipped tooth",
+  "file": "Mouse-M116.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M116.png",
+  "drawn_pct": 59.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M117",
+  "group": "normal",
+  "label": "determination / broad nose",
+  "file": "Mouse-M117.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M117.png",
+  "drawn_pct": 75.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M118",
+  "group": "normal",
+  "label": "excitement / narrow snout + fork trident",
+  "file": "Mouse-M118.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M118.png",
+  "drawn_pct": 53.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M119",
+  "group": "normal",
+  "label": "curiosity / tufted head-fur",
+  "file": "Mouse-M119.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M119.png",
+  "drawn_pct": 40.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M120",
+  "group": "normal",
+  "label": "bravery / tail draped over shoulder",
+  "file": "Mouse-M120.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M120.png",
+  "drawn_pct": 61.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M121",
+  "group": "normal",
+  "label": "happiness / big round ears",
+  "file": "Mouse-M121.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M121.png",
+  "drawn_pct": 41.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M122",
+  "group": "normal",
+  "label": "determination / one folded ear",
+  "file": "Mouse-M122.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M122.png",
+  "drawn_pct": 51.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M123",
+  "group": "normal",
+  "label": "excitement / extra-long whiskers",
+  "file": "Mouse-M123.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M123.png",
+  "drawn_pct": 44.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M124",
+  "group": "normal",
+  "label": "curiosity / short neat whiskers",
+  "file": "Mouse-M124.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M124.png",
+  "drawn_pct": 40.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M125",
+  "group": "normal",
+  "label": "bravery / freckled snout",
+  "file": "Mouse-M125.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M125.png",
+  "drawn_pct": 56.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M126",
+  "group": "normal",
+  "label": "happiness / fluffy cheeks",
+  "file": "Mouse-M126.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M126.png",
+  "drawn_pct": 48.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M127",
+  "group": "normal",
+  "label": "determination / sleek combed fur",
+  "file": "Mouse-M127.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M127.png",
+  "drawn_pct": 51.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M128",
+  "group": "normal",
+  "label": "excitement / small button nose + button buckler",
+  "file": "Mouse-M128.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M128.png",
+  "drawn_pct": 63.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M129",
+  "group": "normal",
+  "label": "curiosity / gapped front teeth",
+  "file": "Mouse-M129.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M129.png",
+  "drawn_pct": 46.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M130",
+  "group": "normal",
+  "label": "bravery / single scarred cheek",
+  "file": "Mouse-M130.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M130.png",
+  "drawn_pct": 60.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M131",
+  "group": "normal",
+  "label": "happiness / tall narrow ears",
+  "file": "Mouse-M131.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M131.png",
+  "drawn_pct": 49.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M132",
+  "group": "normal",
+  "label": "determination / tiny rounded ears",
+  "file": "Mouse-M132.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M132.png",
+  "drawn_pct": 54.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M133",
+  "group": "normal",
+  "label": "excitement / crooked whisker",
+  "file": "Mouse-M133.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M133.png",
+  "drawn_pct": 51.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M134",
+  "group": "normal",
+  "label": "curiosity / double-crown fur swirl",
+  "file": "Mouse-M134.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M134.png",
+  "drawn_pct": 53.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M135",
+  "group": "normal",
+  "label": "bravery / speckled ears",
+  "file": "Mouse-M135.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M135.png",
+  "drawn_pct": 56.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M136",
+  "group": "normal",
+  "label": "happiness / chipped tooth",
+  "file": "Mouse-M136.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M136.png",
+  "drawn_pct": 50.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M137",
+  "group": "normal",
+  "label": "determination / broad nose",
+  "file": "Mouse-M137.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M137.png",
+  "drawn_pct": 49.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M138",
+  "group": "normal",
+  "label": "excitement / narrow snout + snail-shell helmet",
+  "file": "Mouse-M138.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M138.png",
+  "drawn_pct": 60.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M139",
+  "group": "normal",
+  "label": "bravery / tufted head-fur",
+  "file": "Mouse-M139.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M139.png",
+  "drawn_pct": 48.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M140",
+  "group": "normal",
+  "label": "happiness / tail draped over shoulder",
+  "file": "Mouse-M140.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M140.png",
+  "drawn_pct": 56.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M141",
+  "group": "normal",
+  "label": "determination / big round ears",
+  "file": "Mouse-M141.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M141.png",
+  "drawn_pct": 58.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M142",
+  "group": "normal",
+  "label": "excitement / one folded ear",
+  "file": "Mouse-M142.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M142.png",
+  "drawn_pct": 40.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M143",
+  "group": "normal",
+  "label": "happiness / extra-long whiskers",
+  "file": "Mouse-M143.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M143.png",
+  "drawn_pct": 55.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M144",
+  "group": "normal",
+  "label": "determination / short neat whiskers",
+  "file": "Mouse-M144.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M144.png",
+  "drawn_pct": 45.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M145",
+  "group": "normal",
+  "label": "happiness / fluffy cheeks",
+  "file": "Mouse-M145.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M145.png",
+  "drawn_pct": 52.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M146",
+  "group": "normal",
+  "label": "determination / sleek combed fur",
+  "file": "Mouse-M146.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M146.png",
+  "drawn_pct": 55.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M147",
+  "group": "normal",
+  "label": "happiness / sleek combed fur",
+  "file": "Mouse-M147.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M147.png",
+  "drawn_pct": 58.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M148",
+  "group": "normal",
+  "label": "happiness / small button nose + matchstick club",
+  "file": "Mouse-M148.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M148.png",
+  "drawn_pct": 52.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M149",
+  "group": "normal",
+  "label": "happiness / gapped front teeth",
+  "file": "Mouse-M149.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M149.png",
+  "drawn_pct": 50.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "M150",
+  "group": "normal",
+  "label": "happiness / single scarred cheek",
+  "file": "Mouse-M150.png",
+  "img": "systems/mausritter/images/gallery/Mouse-M150.png",
+  "drawn_pct": 63.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R001",
+  "group": "rats",
+  "label": "torn ear and crooked smirk / lean street-rat build / aggressive glare",
+  "file": "Mouse-R001.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R001.png",
+  "drawn_pct": 52.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R002",
+  "group": "rats",
+  "label": "torn ear and crooked smirk / stocky enforcer build / intimidating stare",
+  "file": "Mouse-R002.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R002.png",
+  "drawn_pct": 62.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R003",
+  "group": "rats",
+  "label": "torn ear and crooked smirk / wiry pickpocket build / conniving grin",
+  "file": "Mouse-R003.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R003.png",
+  "drawn_pct": 57.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R004",
+  "group": "rats",
+  "label": "torn ear and crooked smirk / gaunt old-timer build / nerdy eager grin + rusty nail sword",
+  "file": "Mouse-R004.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R004.png",
+  "drawn_pct": 50.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R005",
+  "group": "rats",
+  "label": "torn ear and crooked smirk / broad river-rat build / wild-eyed crazy grin",
+  "file": "Mouse-R005.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R005.png",
+  "drawn_pct": 60.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R006",
+  "group": "rats",
+  "label": "scarred snout with a sideways glance / lean street-rat build / smug victorious smirk",
+  "file": "Mouse-R006.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R006.png",
+  "drawn_pct": 44.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R007",
+  "group": "rats",
+  "label": "scarred snout with a sideways glance / stocky enforcer build / nervous worried glance",
+  "file": "Mouse-R007.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R007.png",
+  "drawn_pct": 60.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R008",
+  "group": "rats",
+  "label": "scarred snout with a sideways glance / wiry pickpocket build / aggressive glare",
+  "file": "Mouse-R008.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R008.png",
+  "drawn_pct": 59.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R009",
+  "group": "rats",
+  "label": "scarred snout with a sideways glance / gaunt old-timer build / intimidating stare + bottlecap pauldron",
+  "file": "Mouse-R009.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R009.png",
+  "drawn_pct": 52.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R010",
+  "group": "rats",
+  "label": "scarred snout with a sideways glance / broad river-rat build / conniving grin",
+  "file": "Mouse-R010.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R010.png",
+  "drawn_pct": 55.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R011",
+  "group": "rats",
+  "label": "eye patch and stubbled cheek / lean street-rat build / nerdy eager grin",
+  "file": "Mouse-R011.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R011.png",
+  "drawn_pct": 45.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R012",
+  "group": "rats",
+  "label": "eye patch and stubbled cheek / stocky enforcer build / wild-eyed crazy grin",
+  "file": "Mouse-R012.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R012.png",
+  "drawn_pct": 49.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R013",
+  "group": "rats",
+  "label": "eye patch and stubbled cheek / wiry pickpocket build / smug victorious smirk",
+  "file": "Mouse-R013.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R013.png",
+  "drawn_pct": 63.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R014",
+  "group": "rats",
+  "label": "eye patch and stubbled cheek / gaunt old-timer build / nervous worried glance + rag cloak",
+  "file": "Mouse-R014.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R014.png",
+  "drawn_pct": 67.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R015",
+  "group": "rats",
+  "label": "eye patch and stubbled cheek / broad river-rat build / aggressive glare",
+  "file": "Mouse-R015.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R015.png",
+  "drawn_pct": 62.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R016",
+  "group": "rats",
+  "label": "bent whisker and raised scarred brow / lean street-rat build / intimidating stare",
+  "file": "Mouse-R016.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R016.png",
+  "drawn_pct": 58.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R017",
+  "group": "rats",
+  "label": "bent whisker and raised scarred brow / stocky enforcer build / conniving grin",
+  "file": "Mouse-R017.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R017.png",
+  "drawn_pct": 62.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R018",
+  "group": "rats",
+  "label": "bent whisker and raised scarred brow / wiry pickpocket build / nerdy eager grin",
+  "file": "Mouse-R018.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R018.png",
+  "drawn_pct": 41.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R019",
+  "group": "rats",
+  "label": "bent whisker and raised scarred brow / gaunt old-timer build / wild-eyed crazy grin + tin-can helm",
+  "file": "Mouse-R019.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R019.png",
+  "drawn_pct": 61.0,
+  "desaturated_px": 901
+ },
+ {
+  "id": "R020",
+  "group": "rats",
+  "label": "bent whisker and raised scarred brow / broad river-rat build / smug victorious smirk",
+  "file": "Mouse-R020.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R020.png",
+  "drawn_pct": 55.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R021",
+  "group": "rats",
+  "label": "chipped tooth and hooded eyes / lean street-rat build / nervous worried glance",
+  "file": "Mouse-R021.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R021.png",
+  "drawn_pct": 54.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R022",
+  "group": "rats",
+  "label": "chipped tooth and hooded eyes / stocky enforcer build / aggressive glare",
+  "file": "Mouse-R022.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R022.png",
+  "drawn_pct": 66.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R023",
+  "group": "rats",
+  "label": "chipped tooth and hooded eyes / wiry pickpocket build / intimidating stare",
+  "file": "Mouse-R023.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R023.png",
+  "drawn_pct": 55.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R024",
+  "group": "rats",
+  "label": "chipped tooth and hooded eyes / gaunt old-timer build / conniving grin + fishhook dagger",
+  "file": "Mouse-R024.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R024.png",
+  "drawn_pct": 73.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R025",
+  "group": "rats",
+  "label": "chipped tooth and hooded eyes / broad river-rat build / nerdy eager grin",
+  "file": "Mouse-R025.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R025.png",
+  "drawn_pct": 59.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R026",
+  "group": "rats",
+  "label": "ragged cloak edge over one shoulder with a sly grin / lean street-rat build / wild-eyed crazy grin",
+  "file": "Mouse-R026.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R026.png",
+  "drawn_pct": 57.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R027",
+  "group": "rats",
+  "label": "ragged cloak edge over one shoulder with a sly grin / stocky enforcer build / smug victorious smirk",
+  "file": "Mouse-R027.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R027.png",
+  "drawn_pct": 49.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R028",
+  "group": "rats",
+  "label": "ragged cloak edge over one shoulder with a sly grin / wiry pickpocket build / nervous worried glance",
+  "file": "Mouse-R028.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R028.png",
+  "drawn_pct": 48.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R029",
+  "group": "rats",
+  "label": "ragged cloak edge over one shoulder with a sly grin / gaunt old-timer build / aggressive glare + broken fork spear",
+  "file": "Mouse-R029.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R029.png",
+  "drawn_pct": 58.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R030",
+  "group": "rats",
+  "label": "ragged cloak edge over one shoulder with a sly grin / broad river-rat build / intimidating stare",
+  "file": "Mouse-R030.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R030.png",
+  "drawn_pct": 61.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R031",
+  "group": "rats",
+  "label": "ink-stained paw near chin and knowing look / lean street-rat build / conniving grin",
+  "file": "Mouse-R031.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R031.png",
+  "drawn_pct": 53.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R032",
+  "group": "rats",
+  "label": "ink-stained paw near chin and knowing look / stocky enforcer build / nerdy eager grin",
+  "file": "Mouse-R032.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R032.png",
+  "drawn_pct": 66.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R033",
+  "group": "rats",
+  "label": "ink-stained paw near chin and knowing look / wiry pickpocket build / wild-eyed crazy grin",
+  "file": "Mouse-R033.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R033.png",
+  "drawn_pct": 58.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R034",
+  "group": "rats",
+  "label": "ink-stained paw near chin and knowing look / gaunt old-timer build / aggressive glare + patched leather hood",
+  "file": "Mouse-R034.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R034.png",
+  "drawn_pct": 65.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R035",
+  "group": "rats",
+  "label": "ink-stained paw near chin and knowing look / broad river-rat build / intimidating stare",
+  "file": "Mouse-R035.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R035.png",
+  "drawn_pct": 56.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R036",
+  "group": "rats",
+  "label": "broken tail tip and tavern-brawler grin / lean street-rat build / conniving grin",
+  "file": "Mouse-R036.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R036.png",
+  "drawn_pct": 75.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R037",
+  "group": "rats",
+  "label": "broken tail tip and tavern-brawler grin / stocky enforcer build / aggressive glare",
+  "file": "Mouse-R037.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R037.png",
+  "drawn_pct": 60.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R038",
+  "group": "rats",
+  "label": "broken tail tip and tavern-brawler grin / wiry pickpocket build / intimidating stare",
+  "file": "Mouse-R038.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R038.png",
+  "drawn_pct": 51.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R039",
+  "group": "rats",
+  "label": "broken tail tip and tavern-brawler grin / gaunt old-timer build / conniving grin + scrap chainmail",
+  "file": "Mouse-R039.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R039.png",
+  "drawn_pct": 61.7,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R040",
+  "group": "rats",
+  "label": "broken tail tip and tavern-brawler grin / broad river-rat build / aggressive glare",
+  "file": "Mouse-R040.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R040.png",
+  "drawn_pct": 54.6,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R041",
+  "group": "rats",
+  "label": "patched ear and narrowed calculating eyes / lean street-rat build / intimidating stare",
+  "file": "Mouse-R041.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R041.png",
+  "drawn_pct": 59.1,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R042",
+  "group": "rats",
+  "label": "patched ear and narrowed calculating eyes / stocky enforcer build / conniving grin",
+  "file": "Mouse-R042.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R042.png",
+  "drawn_pct": 66.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R043",
+  "group": "rats",
+  "label": "patched ear and narrowed calculating eyes / wiry pickpocket build / aggressive glare",
+  "file": "Mouse-R043.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R043.png",
+  "drawn_pct": 73.5,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R044",
+  "group": "rats",
+  "label": "patched ear and narrowed calculating eyes / gaunt old-timer build / intimidating stare + spoon shield",
+  "file": "Mouse-R044.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R044.png",
+  "drawn_pct": 55.0,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R045",
+  "group": "rats",
+  "label": "patched ear and narrowed calculating eyes / broad river-rat build / conniving grin",
+  "file": "Mouse-R045.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R045.png",
+  "drawn_pct": 58.2,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R046",
+  "group": "rats",
+  "label": "soot-smudged cheek and defiant stare / lean street-rat build / aggressive glare",
+  "file": "Mouse-R046.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R046.png",
+  "drawn_pct": 48.8,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R047",
+  "group": "rats",
+  "label": "soot-smudged cheek and defiant stare / stocky enforcer build / intimidating stare",
+  "file": "Mouse-R047.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R047.png",
+  "drawn_pct": 47.4,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R048",
+  "group": "rats",
+  "label": "soot-smudged cheek and defiant stare / wiry pickpocket build / conniving grin",
+  "file": "Mouse-R048.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R048.png",
+  "drawn_pct": 61.3,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R049",
+  "group": "rats",
+  "label": "soot-smudged cheek and defiant stare / gaunt old-timer build / aggressive glare + stolen cheese wedge",
+  "file": "Mouse-R049.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R049.png",
+  "drawn_pct": 58.9,
+  "desaturated_px": 0
+ },
+ {
+  "id": "R050",
+  "group": "rats",
+  "label": "soot-smudged cheek and defiant stare / broad river-rat build / aggressive glare",
+  "file": "Mouse-R050.png",
+  "img": "systems/mausritter/images/gallery/Mouse-R050.png",
+  "drawn_pct": 47.3,
+  "desaturated_px": 0
+ }
+]

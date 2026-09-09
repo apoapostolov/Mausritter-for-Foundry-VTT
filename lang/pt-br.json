@@ -78,5 +78,14 @@
   "Maus.RollTarget" : "Alvo",
   "Maus.RollAD" : "V/D",
   "Maus.RollMiscast" : "Miscast",
-  "Maus.RollMiscastDesc" : "Leve [[/r !miscast!d6]] de dano na Vontade<br/> Então, faça uma salvaguarda de Vontade, ficando com a condição <i>insano</i> se for falha."
+  "Maus.RollMiscastDesc" : "Leve [[/r !miscast!d6]] de dano na Vontade<br/> Então, faça uma salvaguarda de Vontade, ficando com a condição <i>insano</i> se for falha.",
+  "Maus.PortraitGalleryTitle" : "Escolha seu Mausritter",
+  "Maus.PortraitGalleryOpen" : "Galeria de retratos",
+  "Maus.PortraitGalleryPick" : "Selecionar este rato",
+  "Maus.PortraitGalleryConfirm" : "Confirme seu Mausritter",
+  "Maus.PortraitGalleryEmpty" : "Ainda nao ha retratos de rato instalados.",
+  "Maus.PortraitGalleryNoPermission" : "Voce nao pode mudar o retrato deste rato.",
+  "Maus.PortraitGalleryMice" : "Ratos",
+  "Maus.PortraitGalleryClans" : "Clas",
+  "Maus.PortraitGalleryRats" : "Ratas"
 }

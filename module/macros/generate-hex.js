@@ -13,7 +13,8 @@ async function drawTable(name) {
   const row = rolled.results[0];
   return {
     text: row?.name || row?.description || "",
-    roll: rolled.roll || null
+    roll: rolled.roll || null,
+    img: table.img || ""
   };
 }
 
@@ -37,6 +38,7 @@ const details = await drawTable("Hex - Landmark Details");
 const rolls = [landmark.roll, details.roll].filter(Boolean);
 await game.mausritter.postTableCard({
   title: `Hex - ${hexType}`,
+  img: landmark.img,
   result: landmark.text,
   total: landmark.roll?.total,
   formula: landmark.roll?.formula,

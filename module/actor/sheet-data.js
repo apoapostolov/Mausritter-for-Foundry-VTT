@@ -346,16 +346,21 @@ function nearestAnchor(x, y, anchors, maxDist = 20) {
 function occupiedKeys(actor, exceptId, anchors) {
   const occupied = new Set();
   if (!actor) return occupied;
+  const known = new Set(anchors.map((anchor) => cellKey(anchor.x, anchor.y)));
   for (const item of actor.items) {
     if (item.id === exceptId) continue;
     const span = itemSpan(item);
     const sheet = item.system?.sheet ?? {};
-    const origin = footprintOrigin(Number(sheet.currentX) || 0, Number(sheet.currentY) || 0, span);
-    const start = nearestAnchor(origin.x, origin.y, anchors);
+    const cx = Number(sheet.currentX) || 0;
+    const cy = Number(sheet.currentY) || 0;
+    const origin = footprintOrigin(cx, cy, span);
+    const start = nearestAnchor(origin.x, origin.y, anchors, SLOT_STEP * 0.6)
+      || nearestAnchor(cx, cy, anchors, SLOT_STEP * 0.6);
     if (!start) continue;
     for (let row = 0; row < span.h; row++) {
       for (let col = 0; col < span.w; col++) {
-        occupied.add(cellKey(start.x + col * SLOT_STEP, start.y + row * SLOT_STEP));
+        const key = cellKey(start.x + col * SLOT_STEP, start.y + row * SLOT_STEP);
+        if (known.has(key)) occupied.add(key);
       }
     }
   }
@@ -370,8 +375,7 @@ function snapToSlot(x, y, area, item, actor, exceptId) {
   const cells = new Set(anchors.map((anchor) => cellKey(anchor.x, anchor.y)));
   const occupied = occupiedKeys(actor, exceptId, anchors);
   const aimed = nearestAnchor(x, y, anchors, SNAP_RADIUS);
-  const aimedZone = aimed && zones.find((zone) => zone.cells.some((cell) => cellKey(cell.x, cell.y) === cellKey(aimed.x, aimed.y)));
-  const zoneKeys = aimedZone ? new Set(aimedZone.cells.map((cell) => cellKey(cell.x, cell.y))) : null;
+  const aimedKey = aimed ? cellKey(aimed.x, aimed.y) : null;
   let best = null;
   let bestDist = Infinity;
   for (const origin of anchors) {
@@ -390,14 +394,16 @@ function snapToSlot(x, y, area, item, actor, exceptId) {
     if (!fits) continue;
     const center = footprintCenter(origin, span);
     const dist = Math.hypot(x - center.x, y - center.y);
-    const inZone = !!(zoneKeys && keys.every((key) => zoneKeys.has(key)));
-    if (dist > SNAP_RADIUS && !inZone) continue;
+    const coversAimed = !!(aimedKey && keys.includes(aimedKey));
+    if (dist > SNAP_RADIUS && !coversAimed) continue;
     if (dist < bestDist) {
       bestDist = dist;
       best = center;
     }
   }
-  return best ? { x: best.x, y: best.y, snapped: true } : { x, y, snapped: false };
+  return best
+    ? { x: best.x, y: best.y, snapped: true }
+    : { x, y, snapped: false, blocked: !!aimed };
 }
 
 function cardOrigin(event, data, sheet) {
@@ -459,6 +465,11 @@ function previewMagnet(sheet, event, area) {
   const snapped = snapToSlot(origin.x, origin.y, area, item, sheet.actor, drag.itemId);
   const card = area.querySelector(`.item-card[data-item-id="${drag.itemId}"]`);
   if (!card) return;
+  if (snapped.blocked) {
+    const pos = item.system?.sheet ?? {};
+    card.style.transform = `translate3d(${Number(pos.currentX) || 0}px, ${Number(pos.currentY) || 0}px, 0)`;
+    return;
+  }
   card.style.transform = `translate3d(${snapped.x}px, ${snapped.y}px, 0)`;
 }
 
@@ -501,10 +512,14 @@ export async function handleOwnedItemDrop(sheet, event, data) {
   if (!area) return false;
   const origin = cardOrigin(event, data, sheet);
   const snapped = snapToSlot(origin.x, origin.y, area, item, actor, data.itemId);
-  const x = snapped.x;
-  const y = snapped.y;
   if (sheet._mausritterDrag) sheet._mausritterDrag.dropped = true;
   snapGhost(area, 0, 0, false);
+  if (snapped.blocked) {
+    sheet.render(false);
+    return false;
+  }
+  const x = snapped.x;
+  const y = snapped.y;
 
   const sameActor = (data.actorId === actor.id)
     || (actor.isToken && (data.tokenId === actor.token?.id))

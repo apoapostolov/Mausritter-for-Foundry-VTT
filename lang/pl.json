@@ -79,5 +79,14 @@
     "Maus.RollTarget" : "Cel",
     "Maus.RollAD" : "S/O",
     "Maus.RollMiscast" : "Skucha",
+    "Maus.PortraitGalleryTitle" : "Wybierz swojego Mausrittera",
+    "Maus.PortraitGalleryOpen" : "Galeria portretow",
+    "Maus.PortraitGalleryPick" : "Wybierz te mysz",
+    "Maus.PortraitGalleryConfirm" : "Potwierdz swojego Mausrittera",
+    "Maus.PortraitGalleryEmpty" : "Nie zainstalowano jeszcze portretow myszy.",
+    "Maus.PortraitGalleryNoPermission" : "Nie mozesz zmienic portretu tej myszy.",
+    "Maus.PortraitGalleryMice" : "Myszy",
+    "Maus.PortraitGalleryClans" : "Klany",
+    "Maus.PortraitGalleryRats" : "Szczury",
     "Maus.RollMiscastDesc" : "Otrzymaj [[/r !miscast!d6]] obrazeń w sile woli <br/> Nastepnie zdaj test SW, zeby nie dostac stanu <i>Niepoczytalna</i>"
 }

@@ -75,6 +75,12 @@
     "Maus.Item" : "Item",
 
     "Maus.Cancel" : "Cancel",
+    "Maus.PortraitGalleryTitle" : "Choose your Mausritter",
+    "Maus.PortraitGalleryOpen" : "Portrait gallery",
+    "Maus.PortraitGalleryPick" : "Select this mouse",
+    "Maus.PortraitGalleryConfirm" : "Confirm your Mausritter",
+    "Maus.PortraitGalleryEmpty" : "No mouse portraits are installed yet.",
+    "Maus.PortraitGalleryNoPermission" : "You cannot change this mouse's portrait.",
 
     "Maus.Roll" : "Roll",
     "Maus.RollDescription" : "Description",
@@ -99,5 +105,14 @@
     "Maus.RollTarget" : "Target",
     "Maus.RollAD" : "A/D",
     "Maus.RollMiscast" : "Miscast",
-    "Maus.RollMiscastDesc" : "Take [[/r !miscast!d6]] Will Damage <br/> Then, make a will save, taking the <i>drained</i> condition on a failure."
+    "Maus.RollMiscastDesc" : "Take [[/r !miscast!d6]] Will Damage <br/> Then, make a will save, taking the <i>drained</i> condition on a failure.",
+    "Maus.PortraitGalleryTitle" : "Choose your Mausritter",
+    "Maus.PortraitGalleryOpen" : "Portrait gallery",
+    "Maus.PortraitGalleryPick" : "Select this mouse",
+    "Maus.PortraitGalleryConfirm" : "Confirm your Mausritter",
+    "Maus.PortraitGalleryEmpty" : "No mouse portraits are installed yet.",
+    "Maus.PortraitGalleryNoPermission" : "You cannot change this mouse's portrait.",
+    "Maus.PortraitGalleryMice" : "Mice",
+    "Maus.PortraitGalleryClans" : "Clans",
+    "Maus.PortraitGalleryRats" : "Rats"
 }

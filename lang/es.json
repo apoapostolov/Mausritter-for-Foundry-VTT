@@ -79,5 +79,14 @@
     "Maus.RollTarget" : "Objetivo",
     "Maus.RollAD" : "V/D",
     "Maus.RollMiscast" : "Magia fallida",
-    "Maus.RollMiscastDesc" : "Recibes [[/r !miscast!d6]] de daño a VOL <br/> Después, realiza una tirada de salvación de VOL. Si fallas, adquiere la condición <i>loco</i>."
+    "Maus.RollMiscastDesc" : "Recibes [[/r !miscast!d6]] de daño a VOL <br/> Después, realiza una tirada de salvación de VOL. Si fallas, adquiere la condición <i>loco</i>.",
+    "Maus.PortraitGalleryTitle" : "Elige tu Mausritter",
+    "Maus.PortraitGalleryOpen" : "Galería de retratos",
+    "Maus.PortraitGalleryPick" : "Seleccionar este ratón",
+    "Maus.PortraitGalleryConfirm" : "Confirma tu Mausritter",
+    "Maus.PortraitGalleryEmpty" : "Aún no hay retratos de ratón instalados.",
+    "Maus.PortraitGalleryNoPermission" : "No puedes cambiar el retrato de este ratón.",
+    "Maus.PortraitGalleryMice" : "Ratones",
+    "Maus.PortraitGalleryClans" : "Clanes",
+    "Maus.PortraitGalleryRats" : "Ratas"
 }

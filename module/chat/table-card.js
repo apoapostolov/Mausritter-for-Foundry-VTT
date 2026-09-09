@@ -1,4 +1,10 @@
+import { isPlaceholderArt } from "../art.js";
 import { postMausritterChat } from "./post-roll.js";
+
+function tableArt(img) {
+  if (!img || isPlaceholderArt(img)) return "";
+  return img;
+}
 
 function resultLabel(result) {
   return result?.name || result?.description || result?.text || "";
@@ -11,6 +17,7 @@ function tableTitle(name = "") {
 
 export async function renderTableCard({
   title,
+  img = "",
   result,
   total,
   formula,
@@ -25,6 +32,7 @@ export async function renderTableCard({
     "systems/mausritter/templates/chat/tableroll.html",
     {
       title,
+      img: tableArt(img),
       result,
       total,
       formula,
@@ -59,6 +67,7 @@ export function patchRollTableChat() {
       : "";
     const content = await renderTableCard({
       title: tableTitle(this.name),
+      img: this.img,
       result,
       total: roll?.total,
       formula: roll?.formula,

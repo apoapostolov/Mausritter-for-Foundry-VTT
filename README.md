@@ -12,6 +12,8 @@ Mausritter can be purchased here: https://mausritter.com/
 ## Styled character sheets
 Character, Creature, and NPC sheets were built to resemble the standard print sheets.
 
+Hover the gallery glyph on a character portrait to pick from the built-in mouse portraits. Click the portrait itself to use your own file.
+
 
 ## Draggable & Transferrable Item Cards
 Inventory is handled through item cards, which can be moved around freely, moved between sheets, or copied with CTRL+Drag.

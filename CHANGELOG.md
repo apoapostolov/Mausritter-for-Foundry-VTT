@@ -1,6 +1,6 @@
 # Changelog
 
-## 14.0.0 - 2026-09-09
+## 14.0.0 - 2026-09-10
 
 Foundry VTT v14 release of the unofficial Mausritter system. Baseline is Futilrevenge 0.3.3 on Foundry v12.
 
@@ -15,11 +15,12 @@ Foundry VTT v14 release of the unofficial Mausritter system. Baseline is Futilre
 
 ### Added
 
-- Inventory cards snap to nearby dashed slots. Two-slot cards cover two cells. Bank is a three-cell zone.
+- Inventory cards snap to nearby dashed slots. Two-slot cards cover two cells. Bank is a three-cell zone. Occupied slots reject the drop.
 - Drop items from a compendium onto a character or creature inventory. They snap to a free slot.
 - Actor Directory **Create Mouse** button.
 - Condition, hireling, creature portrait, and token art in the compendiums.
-- Illustrated roll tables; result rows use that table's art.
+- Illustrated roll tables; result rows and hex draws use that table's art.
+- Character portrait gallery: hover the gallery glyph, pick from 300 mice, clans, and rats, then confirm. Portrait click still opens FilePicker.
 
 ### Fixed
 

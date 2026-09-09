@@ -1,7 +1,10 @@
 <div class="mausritter table-card">
     <div class="rollcontainer">
-        <div class="flexrow table-card-head">
+        <div class="flexrow table-card-head{{#if img}} has-art{{/if}}">
             <div class="rollweaponh1">{{title}}</div>
+            {{#if img}}
+            <img class="roll-image" src="{{img}}" alt="" title="{{title}}" />
+            {{/if}}
         </div>
         <div class="table-card-row">
             {{#if result}}

@@ -79,5 +79,14 @@
     "Maus.RollTarget" : "Cible",
     "Maus.RollAD" : "A/D",
     "Maus.RollMiscast" : "Contrecoup",
-    "Maus.RollMiscastDesc" : "Prends [[/r !miscast!d6]] de dommage Volonté <br/> Ensuite, fais une sauvegarde Volonté : prends la condition <i>Folie</i> en cas d'échec."
+    "Maus.RollMiscastDesc" : "Prends [[/r !miscast!d6]] de dommage Volonté <br/> Ensuite, fais une sauvegarde Volonté : prends la condition <i>Folie</i> en cas d'échec.",
+    "Maus.PortraitGalleryTitle" : "Choisis ton Mausritter",
+    "Maus.PortraitGalleryOpen" : "Galerie de portraits",
+    "Maus.PortraitGalleryPick" : "Choisir cette souris",
+    "Maus.PortraitGalleryConfirm" : "Confirme ton Mausritter",
+    "Maus.PortraitGalleryEmpty" : "Aucun portrait de souris n'est encore installé.",
+    "Maus.PortraitGalleryNoPermission" : "Tu ne peux pas changer le portrait de cette souris.",
+    "Maus.PortraitGalleryMice" : "Souris",
+    "Maus.PortraitGalleryClans" : "Clans",
+    "Maus.PortraitGalleryRats" : "Rats"
 }

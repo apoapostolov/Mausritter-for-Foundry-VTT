@@ -62,7 +62,15 @@
 
       <div class="portrait-col" style="grid-area: portrait">
 
-        <img class="portrait" src="{{img}}" data-action="editImage" data-edit="img" title="{{name}}" height="250" width="250" />
+        <div class="portrait-wrap">
+          <img class="portrait" src="{{img}}" data-action="editImage" data-edit="img" title="{{name}}" height="250" width="250" />
+          {{#if editable}}
+          <button type="button" class="portrait-gallery-btn" data-action="openPortraitGallery"
+            data-tooltip="{{localize "Maus.PortraitGalleryOpen"}}" aria-label="{{localize "Maus.PortraitGalleryOpen"}}">
+            <i class="fa-solid fa-images" aria-hidden="true"></i>
+          </button>
+          {{/if}}
+        </div>
 
         <div class="verticalFlex blockborder grit-field">
           <!-- Grit -->
