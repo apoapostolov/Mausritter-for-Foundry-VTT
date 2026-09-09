@@ -15,6 +15,7 @@
 			"spell": "Spell"
 		}
 	},
+    "Maus.CreateMouse" : "Create Mouse",
     "Maus.ActorName" : "Name",
     "Maus.ActorBackground" : "Background",
     "Maus.ActorWants" : "Wants",

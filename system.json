@@ -13,7 +13,7 @@
       "name": "weapons",
       "label": "Weapons",
       "system": "mausritter",
-      "path": "packs/weapons.db",
+      "path": "packs/weapons",
       "type": "Item",
       "flags": {},
       "ownership": {
@@ -25,7 +25,7 @@
       "name": "armor",
       "label": "Armor",
       "system": "mausritter",
-      "path": "packs/armor.db",
+      "path": "packs/armor",
       "type": "Item",
       "flags": {},
       "ownership": {
@@ -37,7 +37,7 @@
       "name": "gear",
       "label": "Gear",
       "system": "mausritter",
-      "path": "packs/gear.db",
+      "path": "packs/gear",
       "type": "Item",
       "flags": {},
       "ownership": {
@@ -49,7 +49,7 @@
       "name": "conditions",
       "label": "Conditions",
       "system": "mausritter",
-      "path": "packs/conditions.db",
+      "path": "packs/conditions",
       "type": "Item",
       "flags": {},
       "ownership": {
@@ -61,7 +61,7 @@
       "name": "spells",
       "label": "Spells",
       "system": "mausritter",
-      "path": "packs/spells.db",
+      "path": "packs/spells",
       "type": "Item",
       "flags": {},
       "ownership": {
@@ -73,7 +73,7 @@
       "name": "creatures",
       "label": "Creatures",
       "system": "mausritter",
-      "path": "packs/creatures.db",
+      "path": "packs/creatures",
       "type": "Actor",
       "flags": {},
       "ownership": {
@@ -85,7 +85,7 @@
       "name": "tables",
       "label": "Tables",
       "system": "mausritter",
-      "path": "packs/tables.db",
+      "path": "packs/tables",
       "type": "RollTable",
       "flags": {},
       "ownership": {
@@ -97,7 +97,7 @@
       "name": "mausritter-macros",
       "label": "Mausritter Macros",
       "system": "mausritter",
-      "path": "packs/mausritter-macros.db",
+      "path": "packs/mausritter-macros",
       "type": "Macro",
       "flags": {},
       "ownership": {
@@ -144,8 +144,10 @@
       "flags": {}
     }
   ],
-  "gridDistance": 1,
-  "gridUnits": "in",
+  "grid": {
+    "distance": 1,
+    "units": "in"
+  },
   "primaryTokenAttribute": "health",
   "url": "https://github.com/Futil/foundry-mausritter",
   "manifest": "https://raw.githubusercontent.com/Futil/foundry-mausritter/v12/system.json",
@@ -159,7 +161,7 @@
     }
   ],
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "14.0.0",
+    "verified": "14.367"
   }
 }

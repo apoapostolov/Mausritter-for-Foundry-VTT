@@ -16,7 +16,10 @@ export class MausritterItem extends Item {
   }
 
   static chatListeners(html) {
-    html.on('click', '.use-skill', this._onChatUseSkill.bind(this));
+    const root = html instanceof HTMLElement ? html : html[0];
+    root?.querySelectorAll('.use-skill').forEach((el) => {
+      el.addEventListener('click', this._onChatUseSkill.bind(this));
+    });
   }
 
   static async _onChatUseSkill(event) {

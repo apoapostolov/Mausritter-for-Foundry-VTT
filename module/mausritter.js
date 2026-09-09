@@ -1,4 +1,3 @@
-// Import Modules
 import { MausritterActor } from "./actor/actor.js";
 import { MausritterActorSheet } from "./actor/actor-sheet.js";
 import { MausritterHirelingSheet } from "./actor/hireling-sheet.js";
@@ -8,13 +7,22 @@ import { MausritterStorageSheet } from "./actor/storage-sheet.js";
 import { MausritterItem } from "./item/item.js";
 import { MausritterItemSheet } from "./item/item-sheet.js";
 
+import { registerSettings } from "./settings.js";
+import { autoCreateCharacter } from "./actor/create-character/create-character.js";
 import {
-  registerSettings
-} from "./settings.js";
-import {autoCreateCharacter} from "./actor/create-character/create-character.js";
+  CharacterData,
+  HirelingData,
+  CreatureData,
+  StorageActorData,
+  GearData,
+  WeaponData,
+  ArmorData,
+  StorageItemData,
+  ConditionData,
+  SpellData
+} from "./data/models.js";
 
-Hooks.once('init', async function () {
-
+Hooks.once("init", async function () {
   game.mausritter = {
     MausritterActor,
     MausritterItem,
@@ -25,145 +33,114 @@ Hooks.once('init', async function () {
 
   registerSettings();
 
-
-  /**
-   * Set an initiative formula for the system
-   * @type {String}
-   */
   CONFIG.Combat.initiative = {
-    formula: "1d100",
+    formula: "-1d20+@stats.dexterity.value",
     decimals: 2
   };
 
-  // Define custom Entity classes
   CONFIG.Actor.documentClass = MausritterActor;
   CONFIG.Item.documentClass = MausritterItem;
- 
-  // Define table data for character generator
-  CONFIG.MAUSRITTER = {}
+  CONFIG.Actor.dataModels = {
+    character: CharacterData,
+    hireling: HirelingData,
+    creature: CreatureData,
+    storage: StorageActorData
+  };
+  CONFIG.Item.dataModels = {
+    item: GearData,
+    weapon: WeaponData,
+    armor: ArmorData,
+    storage: StorageItemData,
+    condition: ConditionData,
+    spell: SpellData
+  };
 
+  CONFIG.MAUSRITTER = {};
   CONFIG.MAUSRITTER.tables = {
-    tables: "Tables",
+    tables: "tables",
     birthsign: "Birthsign",
     physicalDetail: "Physical detail",
     coatPattern: "Mousy Coat Pattern",
     coatColor: "Mousy Coat Color",
     firstName: "Mousy Names - Birthname",
     lastName: "Mousy Names - Matriname"
-  }
-  
-  // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
+  };
 
+  const Actors = foundry.documents.collections.Actors;
+  const Items = foundry.documents.collections.Items;
+  const ActorSheet = foundry.appv1.sheets.ActorSheet;
+  const ItemSheet = foundry.appv1.sheets.ItemSheet;
+
+  Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("mausritter", MausritterActorSheet, {
-    types: ['character'],
+    types: ["character"],
     makeDefault: true
   });
   Actors.registerSheet("mausritter", MausritterHirelingSheet, {
-    types: ['hireling'],
+    types: ["hireling"],
     makeDefault: false
   });
   Actors.registerSheet("mausritter", MausritterCreatureSheet, {
-    types: ['creature'],
+    types: ["creature"],
     makeDefault: false
   });
   Actors.registerSheet("mausritter", MausritterStorageSheet, {
-    types: ['storage'],
+    types: ["storage"],
     makeDefault: false
   });
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("mausritter", MausritterItemSheet, { makeDefault: true });
 
-  // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function () {
-    var outStr = '';
-    for (var arg in arguments) {
-      if (typeof arguments[arg] != 'object') {
+  globalThis.Handlebars.registerHelper("concat", function () {
+    let outStr = "";
+    for (const arg in arguments) {
+      if (typeof arguments[arg] != "object") {
         outStr += arguments[arg];
       }
     }
     return outStr;
   });
 
-  Handlebars.registerHelper('toLowerCase', function (str) {
+  globalThis.Handlebars.registerHelper("toLowerCase", function (str) {
     return str.toLowerCase();
   });
-
-  CONFIG.Combat.initiative = {
-    formula: "-1d20+@stats.dexterity.value",
-    decimals: 2
-  };
-
-  // preloadHandlebarsTemplates();
 });
-
-/**
- * Set default values for new actors' tokens
- */
- Hooks.on("preCreateActor", (document, createData, options, userId) => {
-  let disposition = CONST.TOKEN_DISPOSITIONS.NEUTRAL;
-
-  if (createData.type == "creature") {
-    disposition = CONST.TOKEN_DISPOSITIONS.HOSTILE
-  }
-
-  // Set wounds, advantage, and display name visibility
-  mergeObject(createData,
-    {
-      "token.bar1": { "attribute": "health" },        // Default Bar 1 to Health 
-      "token.bar2": { "stat": "strength" },      // Default Bar 2 to Insanity
-      "token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display name to be on owner hover
-      "token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display bars to be on owner hover
-      "token.disposition": disposition,                               // Default disposition to neutral
-      "token.name": createData.name                                   // Set token name to actor name
-    })
-
-
-  if (createData.type == "character") {
-    createData.token.vision = true;
-    createData.token.actorLink = true;
-  }
-})
-
-// async function preloadHandlebarsTemplates() {
-//   const templatePaths = [
-//       "systems/mausritter/templates/item/item-card.html"
-//   ];
-//   return loadTemplates(templatePaths);
-// }
-
 
 Hooks.once("ready", async function () {
-  // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createMausritterMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    if (data.type !== "Item") return;
+    createMausritterMacro(data, slot);
+    return false;
+  });
 });
 
+Hooks.on("renderActorDirectory", (app, html) => {
+  const root = html instanceof HTMLElement ? html : html[0];
+  if (!root || root.querySelector(".mausritter-create-character")) return;
+  const actions = root.querySelector(".header-actions");
+  if (!actions) return;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "mausritter-create-character";
+  button.innerHTML = `<i class="fa-solid fa-hat-wizard"></i><span>${game.i18n.localize("Maus.CreateMouse")}</span>`;
+  button.addEventListener("click", () => game.mausritter.autoCreateCharacter());
+  actions.appendChild(button);
+});
 
-
-/* -------------------------------------------- */
-/*  Hotbar Macros                               */
-/* -------------------------------------------- */
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
- * @param {number} slot     The hotbar slot to use
- * @returns {Promise}
- */
 async function createMausritterMacro(data, slot) {
-  if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
-  const item = data.data;
+  const item = await foundry.documents.Item.fromDropData(data);
+  if (!item) {
+    return ui.notifications.warn("You can only create macro buttons for owned Items");
+  }
+  if (!item.isEmbedded) {
+    return ui.notifications.warn("You can only create macro buttons for owned Items");
+  }
 
-  // Create the macro command
-  let command = `game.mausritter.rollItemMacro("${item.name}");`;
-
-
-  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  const command = `game.mausritter.rollItemMacro("${item.name}");`;
+  let macro = game.macros.contents.find((m) => (m.name === item.name) && (m.command === command));
   if (!macro) {
-    macro = await Macro.create({
+    macro = await foundry.documents.Macro.create({
       name: item.name,
       type: "script",
       img: item.img,
@@ -173,52 +150,25 @@ async function createMausritterMacro(data, slot) {
       }
     });
   }
-  game.user.assignHotbarMacro(macro, slot);
+  await game.user.assignHotbarMacro(macro, slot);
   return false;
 }
 
-
-/**
- * Roll Macro from a Weapon.
- * @param {string} itemName
- * @return {Promise}
- */
 function rollItemMacro(itemName) {
-  const speaker = ChatMessage.getSpeaker();
+  const speaker = foundry.documents.ChatMessage.getSpeaker();
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
-  const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  const item = actor ? actor.items.find((i) => i.name === itemName) : null;
   if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
-
   return actor.rollItem(item.id);
 }
 
-
-/**
- * Roll Stat.
- * @param {string} statName
- * @return {Promise}
- */
 function rollStatMacro() {
-  var selected = canvas.tokens.controlled;
-  const speaker = ChatMessage.getSpeaker();
-
-  if (selected.length == 0) {
-    selected = game.actors.tokens[speaker.token];
-  }
-
+  const speaker = foundry.documents.ChatMessage.getSpeaker();
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
   const stat = actor ? Object.entries(actor.system.stats) : null;
-
-
-  // if (stat == null) {
-  //   ui.notifications.info("Stat not found on token");
-  //   return;
-  // }
-
-
   return actor.rollStatSelect(stat);
 }

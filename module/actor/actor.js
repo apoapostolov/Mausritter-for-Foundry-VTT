@@ -1,3 +1,5 @@
+import { promptDialog, promptSelect } from "../dialog.js";
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -21,6 +23,27 @@ export class MausritterActor extends Actor {
     else if (actorData.type === 'creature') this._prepareCharacterData(actorData);
 
   }
+
+  /** @inheritDoc */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) return false;
+
+    const isCreature = this.type === "creature";
+    const isCharacter = this.type === "character";
+    const prototypeToken = {
+      name: this.name,
+      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+      disposition: isCreature ? CONST.TOKEN_DISPOSITIONS.HOSTILE : CONST.TOKEN_DISPOSITIONS.NEUTRAL,
+      bar1: { attribute: "health" }
+    };
+    if (isCharacter) {
+      prototypeToken.actorLink = true;
+      prototypeToken.sight = { enabled: true };
+    }
+    this.updateSource({ prototypeToken });
+  }
   /**
    * Prepare Character type specific data
    */
@@ -39,119 +62,57 @@ export class MausritterActor extends Actor {
   }
 
 
-  rollStatSelect(statList) {
-
-    let selectList = "";
-
-    statList.forEach(stat => selectList += "<option value='" + stat[0] + "'>" + game.i18n.localize('Maus.'+stat[1].label) + "</option>")
-
-    let d = new Dialog({
-      title: game.i18n.localize('Maus.RollSelectType'),
-      content: "<h2>" + game.i18n.localize('Maus.RollSelectStat') + "</h2> <select style='margin-bottom:10px;'name='stat' id='stat'> " + selectList + "</select> <br/>",
-      buttons: {
-        roll: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize('Maus.Roll'),
-          callback: (html) => this.rollStat(this.system.stats[html.find('[id=\"stat\"]')[0].value])
-        },
-        cancel: {
-          icon: '<i class="fas fa-times"></i>',
-          label: game.i18n.localize('Maus.Cancel'),
-          callback: () => { }
-        }
-      },
-      default: "roll",
-      close: () => { }
+  async rollStatSelect(statList) {
+    const selectList = statList.map((stat) => {
+      const label = game.i18n.localize(`Maus.${stat[1].label}`);
+      return `<option value="${stat[0]}">${label}</option>`;
+    }).join("");
+    const value = await promptSelect({
+      title: game.i18n.localize("Maus.RollSelectType"),
+      heading: game.i18n.localize("Maus.RollSelectStat"),
+      id: "stat",
+      optionsHtml: selectList
     });
-    d.render(true);
+    if (!value) return;
+    return this.rollStat(this.system.stats[value]);
   }
 
-  rollStat(attribute) {
-
-    let attLabel = attribute.label?.charAt(0).toUpperCase() + attribute.label?.toLowerCase().slice(1);
-    if (!attribute.label && isNaN(attLabel))
-      attLabel = attribute.charAt(0)?.toUpperCase() + attribute.toLowerCase().slice(1);
-
-    //this.rollAttribute(attribute, "none");
-
-    let d = new Dialog({
-      title: game.i18n.localize('Maus.RollSelectType'),
-      content: "<h2> "+game.i18n.localize('Maus.RollAdvantageDisadvantage')+ "</h2> <select style='margin-bottom:10px;'name='advantage' id='advantage'> <option value='none'>"+game.i18n.localize('Maus.RollNone')+"</option> <option value='advantage'>"+game.i18n.localize('Maus.RollAdvantageDisadvantage')+"</option></select> <br/>",
-      buttons: {
-        roll: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize('Maus.Roll'),
-          callback: (html) => this.rollAttribute(attribute, html.find('[id=\"advantage\"]')[0].value)
-        },
-        cancel: {
-          icon: '<i class="fas fa-times"></i>',
-          label: game.i18n.localize('Maus.Cancel'),
-          callback: () => { }
-        }
-      },
-      default: "roll",
-      close: () => { }
+  async rollStat(attribute) {
+    const optionsHtml = `<option value="none">${game.i18n.localize("Maus.RollNone")}</option><option value="advantage">${game.i18n.localize("Maus.RollAdvantageDisadvantage")}</option>`;
+    const value = await promptSelect({
+      title: game.i18n.localize("Maus.RollSelectType"),
+      heading: game.i18n.localize("Maus.RollAdvantageDisadvantage"),
+      id: "advantage",
+      optionsHtml
     });
-    d.render(true);
+    if (!value) return;
+    return this.rollAttribute(attribute, value);
   }
 
-  rollItem(itemId, options = { event: null }) {
-    let item = foundry.utils.duplicate(this.getEmbeddedDocument("Item", itemId));
+  async rollItem(itemId, options = { event: null }) {
+    const item = this.getEmbeddedDocument("Item", itemId)?.toObject();
+    if (!item) return;
 
-    if(item.type == "weapon"){
-            //Select the stat of the roll.
-      let t = new Dialog({
-        title: game.i18n.localize('Maus.RollSelectStat'),
-        content: "<h2> "+game.i18n.localize('Maus.RollEnhanced')+"/"+game.i18n.localize('Maus.RollImpaired')+" </h2> <select style='margin-bottom:10px;'name='enhanced' id='enhanced'>\
-        <option value='normal'>"+game.i18n.localize('Maus.RollNormal')+"</option>\
-        <option value='enhanced'>"+game.i18n.localize('Maus.RollEnhanced')+"</option>\
-        <option value='impaired'>"+game.i18n.localize('Maus.RollImpaired')+"</option></select> <br/>",
-        buttons: {
-          roll: {
-            icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize('Maus.Roll'),
-            callback: (html) => this.rollWeapon(item, html.find('[id=\"enhanced\"]')[0].value)
-          },
-          cancel: {
-            icon: '<i class="fas fa-times"></i>',
-            label: game.i18n.localize('Maus.Cancel'),
-            callback: () => { }
-          }
-        },
-        default: "roll",
-        close: () => { }
+    if (item.type == "weapon") {
+      const optionsHtml = `<option value="normal">${game.i18n.localize("Maus.RollNormal")}</option><option value="enhanced">${game.i18n.localize("Maus.RollEnhanced")}</option><option value="impaired">${game.i18n.localize("Maus.RollImpaired")}</option>`;
+      const value = await promptSelect({
+        title: game.i18n.localize("Maus.RollSelectStat"),
+        heading: `${game.i18n.localize("Maus.RollEnhanced")}/${game.i18n.localize("Maus.RollImpaired")}`,
+        id: "enhanced",
+        optionsHtml
       });
-      t.render(true);
-      
-      // if(item.system.weapon.selected == 0)
-      //   this.rollWeapon(item, item.system.weapon.dmg1);
-      // else
-      // this.rollWeapon(item, item.system.weapon.dmg2);
-    } else if(item.type=="spell"){
-      //Select the stat of the roll.
-      let t = new Dialog({
-        title: "Select Stat",
-        content: "<h2> "+game.i18n.localize('Maus.RollPowerDesc')+" </h2> <input style='margin-bottom:10px;' name='power' id='power' value='1'></input><br/>",
-        buttons: {
-          roll: {
-            icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize('Maus.Roll'),
-            callback: (html) => this.rollSpell(item, html.find('[id=\"power\"]')[0].value)
-          },
-          cancel: {
-            icon: '<i class="fas fa-times"></i>',
-            label: game.i18n.localize('Maus.Cancel'),
-            callback: () => { }
-          }
-        },
-        default: "roll",
-        close: () => { }
+      if (!value) return;
+      return this.rollWeapon(item, value);
+    }
+    if (item.type == "spell") {
+      const root = await promptDialog({
+        title: game.i18n.localize("Maus.RollSelectStat"),
+        content: `<h2>${game.i18n.localize("Maus.RollPowerDesc")}</h2> <input style="margin-bottom:10px;" name="power" id="power" value="1"></input><br/>`
       });
-      t.render(true);
+      if (!root) return;
+      return this.rollSpell(item, root.querySelector("#power")?.value ?? "1");
     }
-    else {
-      this.chatDesc(item);
-    }
+    return this.chatDesc(item);
   }
 
   async rollWeapon(item = "", state = ""){
@@ -166,7 +127,7 @@ export class MausritterActor extends Actor {
   // else
   // this.rollWeapon(item, item.system.weapon.dmg2);
 
-    let damageRoll = new Roll(die);
+    let damageRoll = new foundry.dice.Roll(die);
     await damageRoll.evaluate();
     //damageRoll.roll();
 
@@ -210,17 +171,17 @@ export class MausritterActor extends Actor {
     };
 
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = foundry.documents.ChatMessage.getWhisperRecipients("GM");
 
     let template = 'systems/mausritter/templates/chat/statroll.html';
-    renderTemplate(template, templateData).then(content => {
+    foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
       chatData.content = content;
       if (game.dice3d) {
-        game.dice3d.showForRoll(damageRoll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+        game.dice3d.showForRoll(damageRoll, game.user, true, chatData.whisper, chatData.blind).then(displayed => foundry.documents.ChatMessage.create(chatData));
 
       } else {
         chatData.sound = CONFIG.sounds.dice;
-        ChatMessage.create(chatData);
+        foundry.documents.ChatMessage.create(chatData);
       }
     });
 
@@ -229,7 +190,7 @@ export class MausritterActor extends Actor {
   async rollSpell(item = "", power = ""){
     let die = power+"d6";
 
-    let damageRoll = new Roll(die);
+    let damageRoll = new foundry.dice.Roll(die);
     await damageRoll.evaluate();
 
     const diceData = this.formatDice(damageRoll);
@@ -306,17 +267,17 @@ export class MausritterActor extends Actor {
     };
 
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = foundry.documents.ChatMessage.getWhisperRecipients("GM");
 
     let template = 'systems/mausritter/templates/chat/statroll.html';
-    renderTemplate(template, templateData).then(content => {
+    foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
       chatData.content = content;
       if (game.dice3d) {
-        game.dice3d.showForRoll(damageRoll, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+        game.dice3d.showForRoll(damageRoll, game.user, true, chatData.whisper, chatData.blind).then(displayed => foundry.documents.ChatMessage.create(chatData));
 
       } else {
         chatData.sound = CONFIG.sounds.dice;
-        ChatMessage.create(chatData);
+        foundry.documents.ChatMessage.create(chatData);
       }
     });
 
@@ -331,20 +292,19 @@ export class MausritterActor extends Actor {
     let diceformular = "1d20";
 
 
-    let r = new Roll(diceformular, {});
+    let r = new foundry.dice.Roll(diceformular, {});
     await r.evaluate();
 
     let rSplit = ("" + r._total).split("");
 
     //Advantage roll
-    let a = new Roll(diceformular, {});
+    let a = new foundry.dice.Roll(diceformular, {});
     await a.evaluate();
 
     let damageRoll = 0;
-    if (item.type == "weapon") {
-      damageRoll = new Roll(item.system.damage);
+    if (item && item.type == "weapon") {
+      damageRoll = new foundry.dice.Roll(item.system.damage);
       await damageRoll.evaluate();
-
     }
 
     // Format Dice
@@ -363,9 +323,6 @@ export class MausritterActor extends Actor {
     } else {
         resultText = (r._total <= targetValue ? game.i18n.localize('Maus.RollSuccess') : game.i18n.localize('Maus.RollFailure'));
     } 
-
-    console.log(this);
-    console.log(r._total);
 
     var templateData = {
       actor: this,
@@ -390,8 +347,8 @@ export class MausritterActor extends Actor {
       mod: mod,
       item: item,
       targetValue: targetValue,
-      useSkill: item.type == "skill" ? true : false,
-      isWeapon: item.type == "weapon" ? true : false,
+      useSkill: item?.type == "skill",
+      isWeapon: item?.type == "weapon",
       advantage: advantage == "advantage" ? true : false,
       diceData
     };
@@ -406,7 +363,7 @@ export class MausritterActor extends Actor {
     };
 
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = foundry.documents.ChatMessage.getWhisperRecipients("GM");
 
     /*
             if (this.data.type == "hireling") {
@@ -414,14 +371,14 @@ export class MausritterActor extends Actor {
             }
     */
     let template = 'systems/mausritter/templates/chat/statroll.html';
-    renderTemplate(template, templateData).then(content => {
+    foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
       chatData.content = content;
       if (game.dice3d) {
-        game.dice3d.showForRoll(r, game.user, true, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+        game.dice3d.showForRoll(r, game.user, true, chatData.whisper, chatData.blind).then(displayed => foundry.documents.ChatMessage.create(chatData));
 
       } else {
         chatData.sound = CONFIG.sounds.dice;
-        ChatMessage.create(chatData);
+        foundry.documents.ChatMessage.create(chatData);
       }
     });
   }
@@ -444,7 +401,7 @@ export class MausritterActor extends Actor {
       };
 
       for (let i = 0; i < diceRoll.terms.length; i++) {
-        if (diceRoll.terms[i] instanceof Die) {
+        if (diceRoll.terms[i] instanceof foundry.dice.terms.Die) {
           let pool = diceRoll.terms[i].results;
           let faces = diceRoll.terms[i].faces;
 
@@ -541,7 +498,7 @@ export class MausritterActor extends Actor {
     };
 
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = foundry.documents.ChatMessage.getWhisperRecipients("GM");
 
     /*
             if (this.data.type == "hireling") {
@@ -549,10 +506,10 @@ export class MausritterActor extends Actor {
             }
     */
     let template = 'systems/mausritter/templates/chat/statroll.html';
-    renderTemplate(template, templateData).then(content => {
+    foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
       chatData.content = content;
 
-      ChatMessage.create(chatData);
+      foundry.documents.ChatMessage.create(chatData);
     });
   }
 

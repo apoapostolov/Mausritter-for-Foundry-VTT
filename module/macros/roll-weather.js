@@ -1,0 +1,23 @@
+const seasons = ["Summer", "Autumn", "Winter", "Spring"];
+const options = seasons.map((s) => `<option value="${s}">${s}</option>`).join("");
+const root = await foundry.applications.api.DialogV2.wait({
+  window: { title: "Select Season" },
+  content: `<h2>Season</h2><select name="stat" id="stat">${options}</select>`,
+  buttons: [
+    { action: "ok", label: "Roll", icon: "fa-solid fa-check", default: true, callback: (_e, _b, d) => d.element },
+    { action: "cancel", label: "Cancel", icon: "fa-solid fa-xmark" }
+  ],
+  rejectClose: false
+});
+if (!(root instanceof HTMLElement)) return;
+const season = root.querySelector("#stat")?.value;
+const pack = game.packs.get("mausritter.tables");
+const tables = pack ? await pack.getDocuments() : [];
+const table = tables.find((t) => t.name === `Weather ${season}`);
+if (!table) return ui.notifications.warn(`Table Weather ${season} not found.`);
+const rolled = await table.roll();
+const weather = rolled.results[0]?.name || rolled.results[0]?.description || "";
+ChatMessage.create({
+  content: `<h2>Today's Weather:</h2><b style="font-size:120%;">${weather}</b>`,
+  whisper: ChatMessage.getWhisperRecipients("GM")
+});

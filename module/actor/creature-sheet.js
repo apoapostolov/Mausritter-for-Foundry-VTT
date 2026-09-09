@@ -1,3 +1,6 @@
+import { wrapActorSheetData, finalizeActorSheetData, createOwnedItem, itemObject, startOwnedItemDrag, handleOwnedItemDrop, rollFromSheetDataset, bindInventoryMagnet, endOwnedItemDrag, bind, bindDelegate, promptCreateOwnedItem, sheetElement } from "./sheet-data.js";
+
+const ActorSheet = foundry.appv1.sheets.ActorSheet;
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -7,7 +10,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["mausritter", "sheet", "actor", "creature"],
             template: "systems/mausritter/templates/actor/creature-sheet.html",
             width: 680,
@@ -20,21 +23,11 @@ export class MausritterCreatureSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
-        
-        const superData = data.data.system;
-
-        // Prepare items.
+        const data = wrapActorSheetData(this, super.getData());
         if (this.actor.type == 'creature') {
         this._prepareCharacterItems(data);
         }
-
-        if (data.data.system.settings == null) {
-        data.data.system.settings = {};
-        }
-
-        return data.data;
+        return finalizeActorSheetData(this, data);
     }
 
 
@@ -56,7 +49,7 @@ export class MausritterCreatureSheet extends ActorSheet {
         // let totalWeight = 0;
         for (let i of sheetData.items) {
             let item = i.system;
-            i.img = i.img || DEFAULT_TOKEN;
+            i.img = i.img || CONST.DEFAULT_TOKEN;
 
             // We'll handle the pip html here.
             if (item.pips == null) {
@@ -159,9 +152,9 @@ export class MausritterCreatureSheet extends ActorSheet {
         if (!this.options.editable) return;
 
         // Update Inventory Item
-        html.find('.item-equip').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const item = duplicate(this.actor.getEmbeddedDocument("Item", li.dataset.itemId))
+        bind(html, '.item-equip', 'click', ev => {
+            const li = ev.currentTarget.closest(".item");
+            const item = itemObject(this.actor, li.dataset.itemId)
 
             item.system.equipped = !item.system.equipped;
             this.actor.updateEmbeddedDocuments('Item', [item]);
@@ -169,53 +162,28 @@ export class MausritterCreatureSheet extends ActorSheet {
 
 
         // Add Inventory Item
-        html.find('.item-create').click(ev => {
-
-            let creatableItems = ['item', 'weapon', 'spell', 'armor', 'condition', 'storage'];
-            let selectList = "";
-
-            creatableItems.forEach(type => selectList += "<option value='" + type + "'>" + type + "</option>")
-
-            //Select the stat of the roll.
-            let t = new Dialog({
-                title: "Select Stat",
-                content: "<h2> Item Type </h2> <select style='margin-bottom:10px;'name='type' id='type'> " + selectList + "</select> <br/>",
-                buttons: {
-                    roll: {
-                        icon: '<i class="fas fa-check"></i>',
-                        label: "Create",
-                        callback: (html) => this._onItemCreate(ev, html.find('[id=\"type\"]')[0].value)
-                    },
-                    cancel: {
-                        icon: '<i class="fas fa-times"></i>',
-                        label: "Cancel",
-                        callback: () => { }
-                    }
-                },
-                default: "roll",
-                close: () => { }
-            });
-            t.render(true);
+        bind(html, '.item-create', 'click', ev => {
+            promptCreateOwnedItem(this, ev);
         });
 
     // Update Inventory Item
-    html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
+    bind(html, '.item-edit', 'click', ev => {
+      const li = ev.currentTarget.closest(".item");
+      const item = this.actor.getEmbeddedDocument("Item", li.dataset.itemId);
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
-      li.slideUp(200, () => this.render(false));
+    bind(html, '.item-delete', 'click', ev => {
+      const li = ev.currentTarget.closest(".item");
+      this.actor.deleteEmbeddedDocuments("Item",[li.dataset.itemId]);
+      
     });
 
     // Rotate Inventory Item
-    html.find('.item-rotate').click(ev => {
+    bind(html, '.item-rotate', 'click', ev => {
         const li = ev.currentTarget.closest(".item");
-        const item = duplicate(this.actor.getEmbeddedDocument("Item", li.dataset.itemId))
+        const item = itemObject(this.actor, li.dataset.itemId)
         if(item.system.sheet.rotation == -90)
           item.system.sheet.rotation = 0;
         else
@@ -224,15 +192,14 @@ export class MausritterCreatureSheet extends ActorSheet {
       });
 
         // Rollable Attributes
-        html.find('.stat-roll').click(ev => {
-            const div = $(ev.currentTarget);
-            const statName = div.data("key");
+        bind(html, '.stat-roll', 'click', ev => {
+            const statName = ev.currentTarget.dataset.key;
             const attribute = this.actor.system.stats[statName];
             this.actor.rollStat(attribute);
         });
 
         // Rollable Item/Anything with a description that we want to click on.
-        html.find('.item-roll').click(ev => {
+        bind(html, '.item-roll', 'click', ev => {
             const li = ev.currentTarget.closest(".item");
             this.actor.rollItem(li.dataset.itemId, {
                 event: ev
@@ -240,27 +207,25 @@ export class MausritterCreatureSheet extends ActorSheet {
         });
 
         // If we have an item input being adjusted from the character sheet.
-        html.on('change', '.item-input', ev => {
-            const li = ev.currentTarget.closest(".item");
-            const item = duplicate(this.actor.getEmbeddedDocument("Item", li.dataset.itemId))
-            const input = $(ev.currentTarget);
-
-            item[input[0].name] = input[0].value;
-
+        bindDelegate(html, 'change', '.item-input', ev => {
+            const input = ev.target.closest('.item-input');
+            const li = input.closest('.item');
+            const item = itemObject(this.actor, li.dataset.itemId);
+            item[input.name] = input.value;
             this.actor.updateEmbeddedDocuments('Item', [item]);
         });
 
-        html.on('mousedown', '.pip-button', ev => {
+        bind(html, '.pip-button', 'mousedown', ev => {
             const li = ev.currentTarget.closest(".item");
-            const item = duplicate(this.actor.getEmbeddedDocument("Item", li.dataset.itemId))
+            const item = itemObject(this.actor, li.dataset.itemId)
 
             let amount = item.system.pips.value;
 
-            if (event.button == 0) {
+            if (ev.button == 0) {
                 if (amount < item.system.pips.max) {
                     item.system.pips.value = Number(amount) + 1;
                 }
-            } else if (event.button == 2) {
+            } else if (ev.button == 2) {
                 if (amount > 0) {
                     item.system.pips.value = Number(amount) - 1;
                 }
@@ -270,9 +235,9 @@ export class MausritterCreatureSheet extends ActorSheet {
         });
 
 
-        html.on('mousedown', '.damage-swap', ev => {
+        bind(html, '.damage-swap', 'mousedown', ev => {
             const li = ev.currentTarget.closest(".item");
-            const item = duplicate(this.actor.getEmbeddedDocument("Item", li.dataset.itemId))
+            const item = itemObject(this.actor, li.dataset.itemId)
 
             let d1 = item.system.weapon.dmg1;
             let d2 = item.system.weapon.dmg2;
@@ -287,18 +252,20 @@ export class MausritterCreatureSheet extends ActorSheet {
         // Drag events for macros.
         if (this.actor.isOwner) {
             let handler = ev => this._onDragItemStart(ev);
-            //let dragEnd = ev => this._onDragOver(ev);
-            html.find('li.dropitem').each((i, li) => {
+            let dragEnd = ev => this._onDragOver(ev);
+            sheetElement(html).querySelectorAll("li.dropitem").forEach((li) => {
                 if (li.classList.contains("inventory-header")) return;
                 li.setAttribute("draggable", true);
                 li.addEventListener("dragstart", handler, false);
               });
 
-            html.find('div.dropitem').each((i, div) => {
+            sheetElement(html).querySelectorAll("div.dropitem").forEach((div) => {
                 if (div.classList.contains("inventory-header")) return;
                 div.setAttribute("draggable", true);
                 div.addEventListener("dragstart", handler, false);
+                div.addEventListener("dragend", dragEnd, false);
             });
+            bindInventoryMagnet(this, html);
 
             // html.find('div.dragItems').each((i, dragItem) => {
 
@@ -351,20 +318,7 @@ export class MausritterCreatureSheet extends ActorSheet {
         // Get the type of item to create.
         //const type = header.dataset.type;
         // Grab any data associated with this control.
-        const data = duplicate(header.dataset);
-        // Initialize a default name.
-        const name = `New ${type.capitalize()}`;
-        // Prepare the item object.
-        const itemData = {
-            name: name,
-            type: type,
-            data: data
-        };
-        // Remove the type from the dataset since it's in the itemData.type prop.
-        delete itemData.data["type"];
-
-        // Finally, create the item!
-        return this.actor.createEmbeddedDocuments("Item",[itemData]);
+        return createOwnedItem(this.actor, event, type);
     }
 
     /**
@@ -378,20 +332,7 @@ export class MausritterCreatureSheet extends ActorSheet {
         // Get the type of item to create.
         const type = header.dataset.type;
         // Grab any data associated with this control.
-        const data = duplicate(header.dataset);
-        // Initialize a default name.
-        const name = `New Skill`;
-        // Prepare the item object.
-        const itemData = {
-            name: name,
-            type: type,
-            data: data
-        };
-        // Remove the type from the dataset since it's in the itemData.type prop.
-        delete itemData.data["type"];
-
-        // Finally, create the item!
-        return this.actor.createEmbeddedDocuments("Item",[itemData]);
+        return createOwnedItem(this.actor, event, type);
     }
 
 
@@ -401,179 +342,19 @@ export class MausritterCreatureSheet extends ActorSheet {
      * @private
      */
     _onRoll(event) {
-        event.preventDefault();
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-
-        if (dataset.roll) {
-            let roll = new Roll(dataset.roll, this.actor.system);
-            let label = dataset.label ? `Rolling ${dataset.label} to score under ${dataset.target}` : '';
-            roll.roll().toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                flavor: label
-            });
-        }
+        return rollFromSheetDataset(this.actor, event);
     }
 
-    async _updateObject(event, formData) {
-        const actor = this.object;
-        const updateData = expandObject(formData);
-
-        await actor.update(updateData, {
-            diff: false
-        });
-    }
-
-
-
-    //The onDragItemStart event can be subverted to let you package additional data what you're dragging
     _onDragItemStart(event) {
-        let itemId = event.currentTarget.getAttribute("data-item-id");
-
-        if (!itemId)
-            return;
-
-        const clickedItem = duplicate(
-            this.actor.getEmbeddedDocument("Item", itemId)
-        );
-
-
-        let it = $(event.currentTarget);
-
-        let width = it.outerWidth();
-        let height = it.outerHeight();
-        var x = event.pageX - it.offset().left - width / 2;
-        var y = event.pageY - it.offset().top - height / 2;
-
-        let i = $('#' + itemId);
-
-        // i.fadeOut(150);
-
-        // setTimeout(function(){
-        //   $('#'+itemId)[0].style.visibility = "hidden";
-        // }, 1);
-        // console.log(event);
-
-        clickedItem.system.stored = "";
-        const item = clickedItem;
-
-        event.dataTransfer.setData(
-            "text/plain",
-            JSON.stringify({
-                type: "Item",
-                sheetTab: this.actor.flags["_sheetTab"],
-                actorId: this.actor.id,
-                itemId: itemId,
-                fromToken: this.actor.isToken,
-                offset: {
-                    x: x,
-                    y: y
-                },
-                data: item,
-                root: event.currentTarget.getAttribute("root"),
-            })
-        );
+        startOwnedItemDrag(this, event);
     }
 
-    //Call this when an item is dropped.
     _onDragOver(event) {
-        // let itemId = event.currentTarget.getAttribute("data-item-id");
-
-        // if(!itemId)
-        //   return;
-
-        // let item = $('#'+itemId);
-
-        // if(item == null)
-        //   return;
-
-        // item.fadeIn(150);
-        // setTimeout(function(){
-        //   item.style.visibility = "visible";
-        // }, 100);
+        endOwnedItemDrag(this, event);
     }
 
-    /**
-     * Handle dropping of an item reference or item data onto an Actor Sheet
-     * @param {DragEvent} event     The concluding DragEvent which contains drop data
-     * @param {Object} data         The data transfer extracted from the event
-     * @return {Object}             A data object which describes the result of the drop
-     * @private
-     */
     async _onDropItem(event, data) {
-        if (!this.actor.isOwner) return false;
-        const item = await Item.fromDropData(data);
-        const itemData = duplicate(item);
-
-        // Handle item sorting within the same Actor
-        const actor = this.actor;
-
-        let it = $(event.target);
-        if(it.attr('id') != "drag-area"){
-            it = it.parents("#drag-area")
-        }
-
-        var x = 0;
-        var y = 0;
-
-
-        if(it.length){
-            let width = it.outerWidth();
-            let height = it.outerHeight();
-    
-            x = event.pageX - it.offset().left - width / 2;
-            y = event.pageY - it.offset().top - height / 2;
-        }
-        // let width = $('#drag-area-' + actor.id).outerWidth();
-        // let height = $('#drag-area-' + actor.id).outerHeight();
-    
-        // var x = event.pageX - $('#drag-area-' + actor.id).offset().left - width / 2;
-        // var y = event.pageY - $('#drag-area-' + actor.id).offset().top - height / 2;
-        
-        // if (Math.abs(x) > Math.abs(width / 2) || Math.abs(y) > Math.abs(height / 2)) {
-        //     x = 0;
-        //     y = 0;
-        // }
-
-        let sameActor = (data.actorId === actor.id) || (actor.isToken && (data.tokenId === actor.token.id));
-        if (sameActor && !(event.ctrlKey)) {
-            let i = duplicate(actor.getEmbeddedDocument("Item", data.itemId))
-            i.system.sheet = {
-                currentX: x - data.offset.x,
-                currentY: y - data.offset.y,
-                initialX: x - data.offset.x,
-                initialY: y - data.offset.y,
-                xOffset: x - data.offset.x,
-                yOffset: y - data.offset.y
-            };
-            actor.updateEmbeddedDocuments('Item', [i]);
-            return;
-            //return this._onSortItem(event, itemData);
-        }
-
-
-        if (data.actorId && !(event.ctrlKey) && !data.fromToken && !this.actor.isToken) {
-            let oldActor = game.actors.get(data.actorId);
-            oldActor.deleteEmbeddedDocuments("Item",[data.itemId]);
-        }
-
-        if (!data.offset) {
-            data.offset = {
-                x: 0,
-                y: 0
-            };
-        }
-        itemData.system.sheet = {
-            currentX: x - data.offset.x,
-            currentY: y - data.offset.y,
-            initialX: x - data.offset.x,
-            initialY: y - data.offset.y,
-            xOffset: x - data.offset.x,
-            yOffset: y - data.offset.y
-        };
-
-        // Create the owned item
-        return this._onDropItemCreate(itemData);
+        return handleOwnedItemDrop(this, event, data);
     }
 
 }

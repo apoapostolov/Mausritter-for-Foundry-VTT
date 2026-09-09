@@ -1,30 +1,16 @@
+import { promptDialog } from "../../dialog.js";
+
 export async function showCreateCharacterDialog(callback) {
-    const template = 'systems/mausritter/templates/dialogs/create-character.html';
-    const html = await renderTemplate(template)
-    const d = new Dialog({
+    const template = "systems/mausritter/templates/dialogs/create-character.html";
+    const html = await foundry.applications.handlebars.renderTemplate(template);
+    const root = await promptDialog({
         title: "What do you want to create?",
         content: html,
-        buttons: {
-            roll: {
-                icon: '<i class="fas fa-check"></i>',
-                label: 'ok',
-                callback: (html) => {
-                    const formElement = html[0].querySelector('fieldset');
-                    const formData = new FormDataExtended(formElement);
-                    const options = formData.object;
-                    callback(options)
-                }
-            },
-            cancel: {
-                icon: '<i class="fas fa-times"></i>',
-                label: game.i18n.localize('Maus.Cancel'),
-                callback: () => {
-                }
-            }
-        },
-        default: "roll",
-        close: () => {
-        }
+        okLabel: "ok",
+        width: 420
     });
-    d.render(true);
+    if (!root) return;
+    const formElement = root.querySelector("fieldset");
+    const formData = new foundry.applications.ux.FormDataExtended(formElement);
+    callback(formData.object);
 }

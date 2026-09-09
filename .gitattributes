@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# LevelDB packs must stay binary. text=auto turns CURRENT into CRLF and
+# classic-level then looks for MANIFEST-*\r on Windows.
+packs/** binary

@@ -1,0 +1,391 @@
+import { promptSelect } from "../dialog.js";
+
+/**
+ * Build the v9-style actor sheet context that Mausritter templates expect.
+ * AppV1 DocumentSheet.getData() no longer provides actor/items bags.
+ */
+
+const DEFAULT_SHEET = {
+  active: false,
+  currentX: 0,
+  currentY: 0,
+  initialX: 0,
+  initialY: 0,
+  xOffset: 0,
+  yOffset: 0,
+  rotation: 0
+};
+
+export function wrapActorSheetData(sheet, superData) {
+  const actorObject = sheet.actor.toObject(false);
+  if (!actorObject.system) actorObject.system = {};
+  if (actorObject.system.settings == null) actorObject.system.settings = {};
+  const items = Array.isArray(actorObject.items) ? actorObject.items : [];
+  for (const item of items) {
+    if (!item.system) item.system = {};
+    item.system.sheet = foundry.utils.mergeObject(
+      foundry.utils.deepClone(DEFAULT_SHEET),
+      item.system.sheet ?? {},
+      { inplace: false }
+    );
+  }
+  return {
+    ...superData,
+    actor: actorObject,
+    items,
+    data: actorObject
+  };
+}
+
+export function finalizeActorSheetData(sheet, bag) {
+  const out = bag.data;
+  out.items = bag.items;
+  out.owner = sheet.actor.isOwner;
+  out.cssClass = bag.cssClass ?? (sheet.isEditable ? "editable" : "locked");
+  out.editable = sheet.isEditable;
+  out.dtypes = ["String", "Number", "Boolean"];
+  return out;
+}
+
+export function sheetElement(html) {
+  return html instanceof HTMLElement ? html : html[0];
+}
+
+export function bind(html, selector, type, handler) {
+  sheetElement(html).querySelectorAll(selector).forEach((el) => {
+    el.addEventListener(type, handler);
+  });
+}
+
+export function bindDelegate(html, type, selector, handler) {
+  const root = sheetElement(html);
+  root.addEventListener(type, (event) => {
+    const match = event.target instanceof Element ? event.target.closest(selector) : null;
+    if (!match || !root.contains(match)) return;
+    handler(event, match);
+  });
+}
+
+export async function promptCreateOwnedItem(sheet, event) {
+  const types = ["item", "weapon", "spell", "armor", "condition", "storage"];
+  const optionsHtml = types.map((type) => `<option value="${type}">${type}</option>`).join("");
+  const type = await promptSelect({
+    title: "Create Item",
+    heading: "Item Type",
+    id: "type",
+    optionsHtml,
+    okLabel: "Create"
+  });
+  if (!type) return;
+  return createOwnedItem(sheet.actor, event, type);
+}
+
+export function createOwnedItem(actor, event, type) {
+  event.preventDefault();
+  const header = event.currentTarget;
+  const dataset = foundry.utils.duplicate(header?.dataset ?? {});
+  delete dataset.type;
+  const label = type ? type.charAt(0).toUpperCase() + type.slice(1) : "Item";
+  return actor.createEmbeddedDocuments("Item", [{
+    name: `New ${label}`,
+    type,
+    system: dataset
+  }]);
+}
+
+export function itemObject(actor, itemId) {
+  const item = actor.getEmbeddedDocument("Item", itemId);
+  return item ? item.toObject() : null;
+}
+
+const SLOT_STEP = 130;
+const SNAP_RADIUS = 72;
+const SLOT_EM = 9.1;
+
+function pointerOffset(event, el) {
+  if (!el) return { x: 0, y: 0 };
+  const rect = el.getBoundingClientRect();
+  const cx = event.clientX ?? event.pageX ?? 0;
+  const cy = event.clientY ?? event.pageY ?? 0;
+  return {
+    x: cx - rect.left - rect.width / 2,
+    y: cy - rect.top - rect.height / 2
+  };
+}
+
+function dropArea(event) {
+  const target = event.target instanceof Element ? event.target : null;
+  return target?.closest?.("#drag-area") ?? null;
+}
+
+function dropPoint(event) {
+  return pointerOffset(event, dropArea(event));
+}
+
+function parseTranslate(el) {
+  const transform = el.style.transform || "";
+  const match = transform.match(/translate3d\(\s*(-?[\d.]+)px\s*,\s*(-?[\d.]+)px/i);
+  if (!match) return null;
+  return { x: Number(match[1]), y: Number(match[2]) };
+}
+
+function cellKey(x, y) {
+  return `${Math.round(x)}:${Math.round(y)}`;
+}
+
+function itemSpan(item) {
+  const size = item?.system?.size ?? {};
+  const sheet = item?.system?.sheet ?? {};
+  const width = Math.max(1, Math.round(Number(size.width) || 1));
+  const height = Math.max(1, Math.round(Number(size.height) || 1));
+  if (Number(sheet.rotation) === -90) return { w: height, h: width };
+  return { w: width, h: height };
+}
+
+function footprintCenter(origin, span) {
+  return {
+    x: origin.x + (span.w - 1) * SLOT_STEP / 2,
+    y: origin.y + (span.h - 1) * SLOT_STEP / 2
+  };
+}
+
+function footprintOrigin(centerX, centerY, span) {
+  return {
+    x: centerX - (span.w - 1) * SLOT_STEP / 2,
+    y: centerY - (span.h - 1) * SLOT_STEP / 2
+  };
+}
+
+function zoneSize(el) {
+  const colsAttr = Number(el.dataset.cols);
+  const rowsAttr = Number(el.dataset.rows);
+  const widthEm = parseFloat(el.style.width) || SLOT_EM;
+  const heightEm = parseFloat(el.style.height) || SLOT_EM;
+  return {
+    cols: Math.max(1, Number.isFinite(colsAttr) && colsAttr > 0 ? Math.round(colsAttr) : Math.round(widthEm / SLOT_EM)),
+    rows: Math.max(1, Number.isFinite(rowsAttr) && rowsAttr > 0 ? Math.round(rowsAttr) : Math.round(heightEm / SLOT_EM))
+  };
+}
+
+function slotZones(area) {
+  if (!area) return [];
+  const zones = [];
+  for (const el of area.querySelectorAll(".item-slot-dashed")) {
+    const pos = parseTranslate(el);
+    if (!pos) continue;
+    const { cols, rows } = zoneSize(el);
+    const cells = [];
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        cells.push({
+          x: pos.x + (col - (cols - 1) / 2) * SLOT_STEP,
+          y: pos.y + (row - (rows - 1) / 2) * SLOT_STEP
+        });
+      }
+    }
+    zones.push({ cells });
+  }
+  return zones;
+}
+
+function slotAnchors(area) {
+  return slotZones(area).flatMap((zone) => zone.cells);
+}
+
+function nearestAnchor(x, y, anchors, maxDist = 20) {
+  let best = null;
+  let bestDist = maxDist;
+  for (const anchor of anchors) {
+    const dist = Math.hypot(x - anchor.x, y - anchor.y);
+    if (dist <= bestDist) {
+      bestDist = dist;
+      best = anchor;
+    }
+  }
+  return best;
+}
+
+function occupiedKeys(actor, exceptId, anchors) {
+  const occupied = new Set();
+  if (!actor) return occupied;
+  for (const item of actor.items) {
+    if (item.id === exceptId) continue;
+    const span = itemSpan(item);
+    const sheet = item.system?.sheet ?? {};
+    const origin = footprintOrigin(Number(sheet.currentX) || 0, Number(sheet.currentY) || 0, span);
+    const start = nearestAnchor(origin.x, origin.y, anchors);
+    if (!start) continue;
+    for (let row = 0; row < span.h; row++) {
+      for (let col = 0; col < span.w; col++) {
+        occupied.add(cellKey(start.x + col * SLOT_STEP, start.y + row * SLOT_STEP));
+      }
+    }
+  }
+  return occupied;
+}
+
+function snapToSlot(x, y, area, item, actor, exceptId) {
+  const zones = slotZones(area);
+  const anchors = zones.flatMap((zone) => zone.cells);
+  if (!anchors.length) return { x, y, snapped: false };
+  const span = itemSpan(item);
+  const cells = new Set(anchors.map((anchor) => cellKey(anchor.x, anchor.y)));
+  const occupied = occupiedKeys(actor, exceptId, anchors);
+  const aimed = nearestAnchor(x, y, anchors, SNAP_RADIUS);
+  const aimedZone = aimed && zones.find((zone) => zone.cells.some((cell) => cellKey(cell.x, cell.y) === cellKey(aimed.x, aimed.y)));
+  const zoneKeys = aimedZone ? new Set(aimedZone.cells.map((cell) => cellKey(cell.x, cell.y))) : null;
+  let best = null;
+  let bestDist = Infinity;
+  for (const origin of anchors) {
+    const keys = [];
+    let fits = true;
+    for (let row = 0; row < span.h && fits; row++) {
+      for (let col = 0; col < span.w; col++) {
+        const key = cellKey(origin.x + col * SLOT_STEP, origin.y + row * SLOT_STEP);
+        if (!cells.has(key) || occupied.has(key)) {
+          fits = false;
+          break;
+        }
+        keys.push(key);
+      }
+    }
+    if (!fits) continue;
+    const center = footprintCenter(origin, span);
+    const dist = Math.hypot(x - center.x, y - center.y);
+    const inZone = !!(zoneKeys && keys.every((key) => zoneKeys.has(key)));
+    if (dist > SNAP_RADIUS && !inZone) continue;
+    if (dist < bestDist) {
+      bestDist = dist;
+      best = center;
+    }
+  }
+  return best ? { x: best.x, y: best.y, snapped: true } : { x, y, snapped: false };
+}
+
+function cardOrigin(event, data) {
+  const point = dropPoint(event);
+  const offset = data?.offset ?? { x: 0, y: 0 };
+  return {
+    x: point.x - offset.x,
+    y: point.y - offset.y
+  };
+}
+
+function sheetPosition(x, y, previous = {}) {
+  return foundry.utils.mergeObject(
+    foundry.utils.deepClone(DEFAULT_SHEET),
+    {
+      ...previous,
+      currentX: x,
+      currentY: y,
+      initialX: x,
+      initialY: y,
+      xOffset: x,
+      yOffset: y
+    },
+    { inplace: false }
+  );
+}
+
+export function startOwnedItemDrag(sheet, event) {
+  const itemId = event.currentTarget.getAttribute("data-item-id");
+  if (!itemId) return;
+  const item = sheet.actor.items.get(itemId);
+  if (!item) return;
+  const offset = pointerOffset(event, event.currentTarget);
+  sheet._mausritterDrag = { itemId, offset, dropped: false };
+  event.currentTarget.style.opacity = "0.4";
+  const payload = item.toObject();
+  if (payload.system) payload.system.stored = "";
+  event.dataTransfer.setData("text/plain", JSON.stringify({
+    type: "Item",
+    uuid: item.uuid,
+    sheetTab: sheet.actor.flags["_sheetTab"],
+    actorId: sheet.actor.id,
+    itemId,
+    fromToken: sheet.actor.isToken,
+    offset,
+    data: payload,
+    root: event.currentTarget.getAttribute("root")
+  }));
+}
+
+function previewMagnet(sheet, event, area) {
+  const drag = sheet._mausritterDrag;
+  if (!drag?.itemId) return;
+  const origin = {
+    x: dropPoint(event).x - drag.offset.x,
+    y: dropPoint(event).y - drag.offset.y
+  };
+  const item = sheet.actor.items.get(drag.itemId);
+  const snapped = snapToSlot(origin.x, origin.y, area, item, sheet.actor, drag.itemId);
+  const card = area.querySelector(`.item-card[data-item-id="${drag.itemId}"]`);
+  if (!card) return;
+  card.style.transform = `translate3d(${snapped.x}px, ${snapped.y}px, 0)`;
+}
+
+export function bindInventoryMagnet(sheet, html) {
+  const root = html instanceof HTMLElement ? html : html[0];
+  const area = root?.querySelector("#drag-area");
+  if (!area || area.dataset.mausritterMagnet === "1") return;
+  area.dataset.mausritterMagnet = "1";
+  area.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    previewMagnet(sheet, event, area);
+  });
+}
+
+export function endOwnedItemDrag(sheet, event) {
+  event.currentTarget.style.opacity = "";
+  const drag = sheet._mausritterDrag;
+  if (drag && !drag.dropped) sheet.render(false);
+  sheet._mausritterDrag = null;
+}
+
+export async function handleOwnedItemDrop(sheet, event, data) {
+  if (!sheet.actor.isOwner) return false;
+  const item = await foundry.documents.Item.fromDropData(data);
+  if (!item) return false;
+  const itemData = item.toObject();
+  const actor = sheet.actor;
+  const origin = cardOrigin(event, data);
+  const snapped = snapToSlot(origin.x, origin.y, dropArea(event), itemData, actor, data.itemId);
+  const x = snapped.x;
+  const y = snapped.y;
+  if (sheet._mausritterDrag) sheet._mausritterDrag.dropped = true;
+
+  const sameActor = (data.actorId === actor.id)
+    || (actor.isToken && (data.tokenId === actor.token?.id));
+  if (sameActor && !event.ctrlKey) {
+    const ownedId = data.itemId ?? item.id;
+    const current = itemObject(actor, ownedId);
+    if (!current) return false;
+    current.system.sheet = sheetPosition(x, y, current.system.sheet);
+    await actor.updateEmbeddedDocuments("Item", [current]);
+    return;
+  }
+
+  if (data.actorId && !event.ctrlKey && !data.fromToken && !actor.isToken) {
+    const oldActor = game.actors.get(data.actorId);
+    if (oldActor && data.itemId) {
+      await oldActor.deleteEmbeddedDocuments("Item", [data.itemId]);
+    }
+  }
+
+  if (!itemData.system) itemData.system = {};
+  itemData.system.sheet = sheetPosition(x, y, itemData.system.sheet);
+  return sheet._onDropItemCreate(itemData);
+}
+
+export async function rollFromSheetDataset(actor, event) {
+  event.preventDefault();
+  const dataset = event.currentTarget.dataset;
+  if (!dataset.roll) return;
+  const roll = new foundry.dice.Roll(dataset.roll, actor.system);
+  await roll.evaluate();
+  const label = dataset.label ? `Rolling ${dataset.label} to score under ${dataset.target}` : "";
+  return roll.toMessage({
+    speaker: foundry.documents.ChatMessage.getSpeaker({ actor }),
+    flavor: label
+  });
+}

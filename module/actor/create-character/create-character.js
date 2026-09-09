@@ -52,28 +52,19 @@ export async function createCharacter(options, additionalWeaponsItems) {
     const highestAttrValue = getHighestAttrValue(characterStats.system.stats);
     if (highestAttrValue <= TAKE_BOTH_ADDITIONAL_ITEMS && options.items && options.background) {
         const additionalItemsBackground = getRandomBackgroundDifferentThan(background);
-        getBackgroundItems(additionalItemsBackground)
-            .then(async (items) => {
-                const slots = [SLOTS.SLOT_2, SLOTS.SLOT_5]
-                for (const [idx, item] of items.entries()) {
-                    await addItem(item.uuid, characterActor, slots[idx]);
-                }
-
-                await showAdditionalItemsInfoDialog(items)
-            })
-
-    } else {
-
-        if (highestAttrValue <= TAKE_ONE_OF_ADDITIONAL_ITEMS && options.items && options.background) {
-            const additionalItemsBackground = getRandomBackgroundDifferentThan(background);
-            const itemCompendiumIds = additionalItemsBackground.items;
-            getBackgroundItems(additionalItemsBackground)
-                .then(async (items) => {
-                    await showAdditionalItemsChoiceDialog(items, async (selectedIndex) => {
-                        await addItem(itemCompendiumIds[selectedIndex], characterActor, SLOTS.SLOT_2)
-                    })
-                })
+        const items = await getBackgroundItems(additionalItemsBackground);
+        const slots = [SLOTS.SLOT_2, SLOTS.SLOT_5];
+        for (const [idx, item] of items.entries()) {
+            await addItem(item.uuid, characterActor, slots[idx]);
         }
+        await showAdditionalItemsInfoDialog(items);
+    } else if (highestAttrValue <= TAKE_ONE_OF_ADDITIONAL_ITEMS && options.items && options.background) {
+        const additionalItemsBackground = getRandomBackgroundDifferentThan(background);
+        const itemCompendiumIds = additionalItemsBackground.items;
+        const items = await getBackgroundItems(additionalItemsBackground);
+        await showAdditionalItemsChoiceDialog(items, async (selectedIndex) => {
+            await addItem(itemCompendiumIds[selectedIndex], characterActor, SLOTS.SLOT_2);
+        });
     }
 }
 
