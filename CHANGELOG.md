@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+14.0.1. Not released.
+
 ## 14.0.0 - 2026-09-10
 
 Foundry VTT v14 release of the unofficial Mausritter system. Baseline is Futilrevenge 0.3.3 on Foundry v12.
