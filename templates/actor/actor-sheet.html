@@ -98,7 +98,9 @@
         </div>
 
         <div class="creaturedescription">
-          {{editor system.biography target="system.biography" button=true editable=true}}
+          <prose-mirror name="system.biography" value="{{system.biography}}" toggled>
+        {{{system.biography}}}
+      </prose-mirror>
         </div>
 
       </div>
@@ -208,7 +210,9 @@
   <section class="sheet-body">
     {{!-- Notes Tab --}}
     <div class="tab biography {{tabs.notes.cssClass}}" data-group="primary" data-tab="notes">
-      {{editor system.notes target="system.notes" button=true owner=owner editable=true}}
+      <prose-mirror name="system.notes" value="{{system.notes}}" toggled>
+        {{{system.notes}}}
+      </prose-mirror>
     </div>
     {{!-- Owned Items Tab --}}
     <div class="tab items {{tabs.items.cssClass}}" data-group="primary" data-tab="items">
