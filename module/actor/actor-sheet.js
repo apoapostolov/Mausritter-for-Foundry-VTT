@@ -14,7 +14,7 @@ const { ActorSheetV2 } = foundry.applications.sheets;
 
 export class MausritterActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
-    classes: ["mausritter", "actor", "character"],
+    classes: ["mausritter", "actor", "character", "themed", "theme-light"],
     position: { width: 742, height: 800 },
     window: { resizable: true },
     form: { submitOnChange: true }

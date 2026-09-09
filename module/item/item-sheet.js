@@ -3,7 +3,7 @@ const { ItemSheetV2 } = foundry.applications.sheets;
 
 export class MausritterItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static DEFAULT_OPTIONS = {
-    classes: ["mausritter", "item"],
+    classes: ["mausritter", "item", "themed", "theme-light"],
     position: { width: 520, height: 480 },
     window: { resizable: true },
     form: { submitOnChange: true }

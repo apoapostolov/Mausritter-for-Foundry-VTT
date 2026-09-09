@@ -1430,11 +1430,18 @@ form.application.mausritter {
 }
 
 .application.mausritter input:not(.item-text),
+.application.mausritter input:not(.item-text):hover,
+.application.mausritter input:not(.item-text):focus,
+.application.mausritter input:not(.item-text):focus-visible,
+.application.mausritter input:not(.item-text):active,
 .application.mausritter select,
-.application.mausritter textarea {
+.application.mausritter select:focus,
+.application.mausritter textarea,
+.application.mausritter textarea:focus {
   color: #161616;
   background: transparent;
   border: none;
+  outline: none;
   box-shadow: none;
 }
 
@@ -1447,6 +1454,23 @@ form.application.mausritter {
 .application.mausritter prose-mirror {
   height: 100%;
   min-height: 8rem;
+  --menu-background: #e6e6e6;
+  --dropdown-background: #f2f2f2;
+  --dropdown-border: #999;
+  --dialog-background: #f2f2f2;
+  --color-control-hover: #ddd;
+  --button-text-color: #161616;
+  --button-hover-text-color: #161616;
+  --color-text-primary: #161616;
+  --color-text-secondary: #333;
+  color: #161616;
+}
+
+.application.mausritter prose-mirror menu,
+.application.mausritter prose-mirror menu button,
+.application.mausritter prose-mirror menu span,
+.application.mausritter prose-mirror menu i {
+  color: #161616;
 }
 
 .application.mausritter .creaturedescription prose-mirror {

@@ -479,7 +479,7 @@ export async function handleOwnedItemDrop(sheet, event, data) {
 
   if (!itemData.system) itemData.system = {};
   itemData.system.sheet = sheetPosition(x, y, itemData.system.sheet);
-  return sheet._onDropItemCreate(itemData);
+  return actor.createEmbeddedDocuments("Item", [itemData]);
 }
 
 export async function rollFromSheetDataset(actor, event) {
