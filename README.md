@@ -1,4 +1,7 @@
 # Mausritter RPG for Foundry VTT
+
+Foundry VTT **v14** (minimum 14.0.0, verified 14.367). This is the Apo fork of Futilrevenge's unofficial system.
+
 #### This is an unofficial version of the Mausritter RPG system, which is the property of Isaac Williams & Losing Games.
 Mausritter can be purchased here: https://mausritter.com/
 ```

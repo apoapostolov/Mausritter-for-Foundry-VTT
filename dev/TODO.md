@@ -27,4 +27,4 @@ Target: Foundry **14.367** (compatibility minimum `14.0.0`)
 ## Still open
 - [ ] Drop `template.json` after a world-migration pass
 - [x] AppV2 sheets (character, hireling, creature, storage, items) on branch appv2
-- [ ] Version bump / release (stay on 0.3.3 until asked)
+- [x] Version bump / release 14.0.0

@@ -1,7 +1,7 @@
 {
   "title": "Mausritter",
   "description": "The unofficial Mausritter system for FoundryVTT.",
-  "version": "0.3.3",
+  "version": "14.0.0",
   "esmodules": [
     "module/mausritter.js"
   ],
@@ -149,14 +149,18 @@
     "units": "in"
   },
   "primaryTokenAttribute": "health",
-  "url": "https://github.com/Futil/foundry-mausritter",
-  "manifest": "https://raw.githubusercontent.com/Futil/foundry-mausritter/v12/system.json",
-  "download": "https://github.com/Futil/foundry-mausritter/archive/v12.zip",
+  "url": "https://github.com/apoapostolov/Mausritter-for-Foundry-VTT",
+  "manifest": "https://github.com/apoapostolov/Mausritter-for-Foundry-VTT/releases/latest/download/system.json",
+  "download": "https://github.com/apoapostolov/Mausritter-for-Foundry-VTT/releases/download/v14.0.0/system.zip",
   "license": "LICENSE.txt",
   "id": "mausritter",
   "authors": [
     {
       "name": "Futilrevenge",
+      "flags": {}
+    },
+    {
+      "name": "Apostol Apostolov",
       "flags": {}
     }
   ],
